@@ -1,0 +1,36 @@
+header.header
+	a.logo(href="/")
+	nav.navigation
+		- var navItem = ['О компании', 'Дилерам', 'Контактная информация']
+		each nav in navItem
+			a.navigation-item(href="#") #{nav}
+	.overlay
+		.nav
+			.nav-trigger
+				span Каталог продукции 
+				i
+			.nav-drop
+				ul.level.level-1
+					li.level-item
+						a(href="#") Внешние двери и&nbsp;входные конструкции
+					li.level-item
+						a(href="#") Интерьерные решения
+					li.level-item
+						a(href="#") Встроенные и профильные системы
+						ul.level.level-2
+							li.level-item
+								a(href="#") П-профиль
+							li.level-item
+								a(href="#") Г-профиль
+							li.level-item
+								a(href="#") ПП-прямой профиль для полок
+							li.level-item
+								a(href="#") Т-профиль для скрытой стыковки на модульном подвесном потолке
+							li.level-item
+								a(href="#") С-провиль для криволинейных конструкций с освещением
+					li.level-item
+						a(href="#") Специализиро&shy;ванные двери
+					li.level-item
+						a(href="#") Прозрачные конструкции
+					li.level-item
+						a(href="#") Товары народного потребления
