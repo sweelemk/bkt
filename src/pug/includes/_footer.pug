@@ -1,0 +1,74 @@
+footer.footer
+	.footer-top
+		.footer__scale
+			div(style="background-image: url(img/footer.jpg)")
+		.l-center
+			nav.map__catalog
+				ul.map__catalog-item
+					li
+						a(href="#") Внешние двери и&nbsp;входные конструкции
+						ul
+							li
+								a(href="#") Входные двери внутренние
+							li
+								a(href="#") Входные группы и наружные двери
+				ul.map__catalog-item
+					li
+						a(href="#") Интерьерные решения
+						ul
+							li
+								a(href="#") Двери со скрытой коробкой
+							li
+								a(href="#") Двери с деревянной коробкой
+				ul.map__catalog-item
+					li
+						a(href="#") Встроенные и&nbsp;профильные системы
+						ul
+							li
+								a(href="#") П-профиль
+							li
+								a(href="#") Г-профиль
+							li
+								a(href="#") ПП-прямой профиль для полок
+							li
+								a(href="#") Т-профиль для скрытой стыковки на модульном подвесном потолке 
+							li
+								a(href="#") С-провиль для криволинейных конструкций с освещением
+				ul.map__catalog-item
+					li
+						a(href="#") Специализиро&shy;ванные двери
+						ul
+							li
+								a(href="#") Двери противопожарные
+							li
+								a(href="#") Двери AQUA
+							li
+								a(href="#") Входные для технических помещений
+				ul.map__catalog-item
+					li
+						a(href="#") Прозрачные конструкции
+						ul
+							li
+								a(href="#") Профиль Prea
+							li
+								a(href="#") Стеклянные двери
+				ul.map__catalog-item
+					li
+						a(href="#") Товары народного потребления
+			.contancts
+				.main__phone
+					span +7 (495) 775 35 68
+				ul.phone__list
+					li +7 (495) 775 35 69
+					li +7 (495) 775 35 68 
+					li +7 (495) 775 35 68
+				.address г. Москва, РФ, ул. Введенского, д.1, стр.1
+	.footer-bottom
+		.l-center
+			nav.footer__nav
+				- var navText = ['О компании', 'Каталог продукции', 'Дилерам', 'Контактная информация']
+				each nav in navText
+					a.footer__nav-item(href="#") #{nav}
+			.developers
+				a(href="#") Разработка сайта: 
+					span Flex Media

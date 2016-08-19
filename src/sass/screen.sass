@@ -11,6 +11,13 @@
 
 html
 	height: 100%
+	font-size: 16px
+	+r(1280)
+		font-size: 14px
+	+r(992)
+		font-size: 13px
+	+r(480)
+		font-size: 11px
 body
 	font-family: 'Book'
 	background-color: #eee
@@ -19,6 +26,10 @@ body
 	background-color: $white
 	+rem(padding, 13px 20px)
 	+rem(min-height, 100px)
+	position: fixed
+	z-index: 5
+	left: 0
+	right: 0
 	.logo
 		+rem(width, 260px)
 		+rem(height, 73px)
@@ -39,8 +50,12 @@ body
 			+rem(padding, 29px)
 			&:hover
 				color: $bordeaux
+		+r(992)
+			display: none
 	.overlay
 		text-align: center
+		+r(992)
+			display: none
 	.nav 
 		display: inline-block
 		position: relative
@@ -124,3 +139,168 @@ body
 							color: $white
 						[class*="level-"]
 							display: block
+.l-center
+	max-width: 1310px
+	padding: 0 15px
+	margin: 0 auto
+	+clr
+	+r(1280)
+		max-width: 1170px
+	+r(1170)
+		max-width: 970px
+	+r(992)
+		max-width: 750px
+	+r(768)
+		max-width: 480px
+.footer
+	.footer-top
+		+rem(padding, 58px 0 20px)
+		position: relative
+		+r(480)
+			background-color: $dGrey
+			+rem(padding-top, 30px)
+		.footer__scale
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			left: 0
+			overflow: hidden
+			z-index: -1
+			div 
+				position: absolute
+				width: 100%
+				top: 0
+				left: 0
+				height: 100%
+				transform: scale(1)
+				transition: transform 5s ease
+				background-size: cover
+				background-position: 50% 80%
+	.contancts
+		width: 100%
+		text-align: center
+		border-top: 1px solid rgba(157,157,156,.35)
+		+r(480)
+			border-bottom: 1px solid rgba(157,157,156,.35)
+			+rem(padding-bottom, 35px)
+		+rem(padding, 30px 0)
+		.main__phone
+			+rem(margin-bottom, 30px)
+			span
+				font-family: 'Heavy'
+				+rem(font-size, 38px)
+				color: $white
+		.phone__list
+			+rem(margin-bottom, 30px)
+			li
+				font-family: 'Medium'
+				+rem(font-size, 17px)
+				display: inline-block
+				color: $white
+				position: relative
+				+r(480)
+					width: 100%
+				&:not(:last-of-type)
+					+rem(margin-right, 30px)
+					+r(480)
+						+rem(margin, 0 0 15px 0)
+					&::after
+						content: '.'
+						position: absolute
+						+rem(right, -21px)
+						bottom: 0
+						+r(480)
+							display: none
+		.address
+			+rem(font-size, 17px)
+			color: $lGrey
+	.footer-bottom
+		+clr
+		background-color: $dGrey
+		+rem(padding, 58px 0 59px)
+		+r(768)
+			text-align: center
+		+r(480)
+			+rem(padding, 0 0 30px)
+.footer__nav
+	float: left
+	font-size: 0
+	+r(768)
+		float: none
+		+rem(margin-bottom, 20px)
+	.footer__nav-item
+		display: inline-block
+		vertical-align: top
+		color: $lGrey
+		transition: color 0.3s ease
+		+rem(font-size, 17px)
+		+r(480)
+			width: 100%
+		&:not(:last-of-type)
+			+rem(margin-right, 20px)
+			+r(480)
+				+rem(margin, 0 0 10px 0)
+		&:hover
+			color: $white
+.developers
+	float: right
+	+r(768)
+		float: none
+		display: inline-block
+	a
+		color: $lGrey
+		+rem(font-size, 17px)
+		span 
+			color: $white
+			transition: color 0.3s ease
+	&:hover
+		span
+			color: $bordeaux
+.map__catalog
+	font-size: 0
+	+rem(margin-bottom, 40px)
+	.map__catalog-item
+		display: inline-block
+		vertical-align: top
+		width: 16.66%
+		+r(992)
+			width: 33.33%
+			+rem(margin-bottom, 30px)
+		+r(768)
+			width: 50%
+		+r(480)
+			width: 100%
+		& > li
+			padding-right: 15%
+			& > a
+				+rem(font-size, 24px)
+				color: $white
+				transition: color 0.3s ease
+				+rem(margin-bottom, 25px)
+				display: inline-block
+				&:hover
+					color: $bordeaux
+				+r(1170)
+					+rem(font-size, 18px)
+				+r(992)
+					+rem(font-size, 24px)
+		ul
+			& > li
+				padding-right: 20%
+				a
+					+rem(font-size, 13px)
+					color: $white
+					transition: color 0.3s ease
+					text-transform: uppercase
+					+rem(padding, 10px 0)
+					display: inline-block
+					line-height: 1.6
+					+r(480)
+						color: $lGrey
+					&:hover
+						color: $bordeaux
+					+r(1170)
+						+rem(font-size, 12px)
+					+r(992)
+						+rem(font-size, 13px)
