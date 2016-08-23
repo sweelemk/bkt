@@ -304,3 +304,204 @@ body
 						+rem(font-size, 12px)
 					+r(992)
 						+rem(font-size, 13px)
+.intro 
+	position: relative
+	overflow: hidden
+	.intro__cover
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center center
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(44,44,41,.3)
+	.intro__wrap
+		+clr
+		height: 100%
+		.intro__content
+			position: absolute
+			z-index: 2
+			zoom: 1
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			text-align: center
+			.intro__content-wrap
+				position: absolute
+				top: 50%
+				left: 0
+				width: 100%
+				transform: translate(0, -50%);
+				backface-visibility: hidden
+				+r(1024) 
+					top: 40%
+				.intro__content-lead
+					max-width: 1000px
+					display: inline-block
+					+rem(margin-bottom, 110px)
+					+r(992)
+						+rem(padding, 0 30px)
+					span
+						font-family: 'Heavy'
+						+rem(font-size, 48px)
+						color: $white
+						+r(992)
+							+rem(font-size, 35px)
+						+r(480)
+							+rem(font-size, 28px)
+						.red 
+							color: #b33727
+						.grey
+							color: #b7b7b7
+				.intro__content-grid
+					+r(992) 
+						display: none
+					.intro__content-grid-action
+						font-size: 0
+						line-height: 0
+						white-space: nowrap
+						.intro__content-grid-item
+							display: inline-block
+							vertical-align: middle
+							+rem(height, 100px)
+							width: 20%
+							position: relative
+							span 
+								position: absolute
+								top: 50%
+								left: 50%
+								transform: translate(-50%, -50%)
+								+rem(width, 100px)
+								+rem(height, 100px)
+								border-radius: 100%
+								background-color: $lGrey
+								cursor: pointer
+		.intro__overlay
+			opacity: 0
+			visibility: hidden
+			left: 100%
+			height: 100%
+			width: 100%
+			top: 0
+			transition: background-color 0.3s linear, opacity 0.3s linear, visibility 0.3s linear
+			+r(992)
+				display: none
+			&.visible
+				opacity: 0.3
+				visibility: visible
+				left: 0
+				transition: background-color 0.3s linear, opacity 0.3s linear, visibility 0.3s linear
+		.intro__hover
+			+r(992)
+				display: none
+			.intro-hover-item
+				position: absolute
+				z-index: 1
+				top: 0
+				left: 100%
+				width: 20%
+				height: 100%
+				overflow: hidden
+				background-repeat: no-repeat
+				background-position: center
+				opacity: 0
+				visibility: hidden
+				transition: opacity 0.3s linear, z-index 0.1s linear, visibility 0.1s linear;
+				&.hover
+					z-index: 3
+					visibility: visible
+					opacity: 1
+					transition: opacity 0.3s linear, z-index 0.1s linear, visibility 0.1s linear;
+				&.hover:nth-of-type(1)
+					left: 0
+				&.hover:nth-of-type(2)
+					left: 20%
+				&.hover:nth-of-type(3)
+					left: 40%
+				&.hover:nth-of-type(4)
+					left: 60%
+				&.hover:nth-of-type(5)
+					left: 80%
+				.intro-hover-item__cover 
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					opacity: .46
+				.intro-hover-item__content
+					position: absolute
+					left: 0
+					z-index: 2
+					color: $white
+					width: 100%
+					text-align: center
+					transition: transform 0.3s linear 0.1s
+					.icon
+						+rem(width, 100px)
+						+rem(height, 100px)
+						display: inline-block
+						background-color: $lGrey
+						border-radius: 100%
+						+rem(margin-bottom, 10px)
+					.text 
+						opacity: 0
+						transition: opacity 0.3s linear 0.1s 
+					.title
+						font-family: 'Medium'
+						+rem(font-size, 24px)
+						+rem(margin-bottom, 10px)
+					.descr
+						+rem(font-size, 17px)
+						padding: 0 5%
+						+rem(margin-bottom, 25px)
+				&.hover
+					.intro-hover-item__content
+						transform: translate(0, -40%)
+						transition: transform 0.3s linear 0.1s
+						.text 
+							opacity: 1
+							transition: opacity 0.3s linear 0.1s 
+	.intro__scroll
+		position: absolute
+		+rem(bottom, 30px)
+		left: 50%
+		transform: translate(-50%, 0)
+		cursor: pointer
+		z-index: 2
+		.intro-icon
+			display: block
+			text-align: center
+			+rem(margin-bottom, 10px)
+			span
+				background-image: url(../img/icons/icon-9.png)
+				+rem(width, 17px)
+				+rem(height, 26px)
+				background-size: cover
+				display: inline-block
+		.intro-text
+			span
+				+rem(font-size, 17px)
+				color: $white
+				+rem(letter-spacing, 1px)
+.btn
+	+rem(height, 35px)
+	+rem(border-radius, 17px)
+	+rem(line-height, 35px)
+	display: inline-block
+	background-color: $white
+	span
+		+rem(font-size, 17px)
+		color: $black
+		display: block
+		+rem(padding, 0 35px)
