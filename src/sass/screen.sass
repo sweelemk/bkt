@@ -4,7 +4,7 @@
 // @import lib/sprite
 // @import lib/svgfont
 @import lib/variables
-// @import lib/slick
+@import lib/slick
 // 
 @import main
 
@@ -15,12 +15,14 @@ html
 	+r(1280)
 		font-size: 14px
 	+r(992)
+		font-size: 14px
+	+r(750)
 		font-size: 13px
 	+r(480)
-		font-size: 11px
+		font-size: 15px
 body
 	font-family: 'Book'
-	background-color: #eee
+	background-color: $white
 
 .header
 	background-color: $white
@@ -151,7 +153,7 @@ body
 	+r(992)
 		max-width: 750px
 	+r(768)
-		max-width: 480px
+		max-width: 100%
 .footer
 	.footer-top
 		+rem(padding, 58px 0 20px)
@@ -338,7 +340,7 @@ body
 			text-align: center
 			.intro__content-wrap
 				position: absolute
-				top: 50%
+				top: 30%
 				left: 0
 				width: 100%
 				transform: translate(0, -50%);
@@ -348,7 +350,6 @@ body
 				.intro__content-lead
 					max-width: 1000px
 					display: inline-block
-					+rem(margin-bottom, 110px)
 					+r(992)
 						+rem(padding, 0 30px)
 					span
@@ -363,29 +364,6 @@ body
 							color: #b33727
 						.grey
 							color: #b7b7b7
-				.intro__content-grid
-					+r(992) 
-						display: none
-					.intro__content-grid-action
-						font-size: 0
-						line-height: 0
-						white-space: nowrap
-						.intro__content-grid-item
-							display: inline-block
-							vertical-align: middle
-							+rem(height, 100px)
-							width: 20%
-							position: relative
-							span 
-								position: absolute
-								top: 50%
-								left: 50%
-								transform: translate(-50%, -50%)
-								+rem(width, 100px)
-								+rem(height, 100px)
-								border-radius: 100%
-								background-color: $lGrey
-								cursor: pointer
 		.intro__overlay
 			opacity: 0
 			visibility: hidden
@@ -471,7 +449,38 @@ body
 						transition: transform 0.3s linear 0.1s
 						.text 
 							opacity: 1
-							transition: opacity 0.3s linear 0.1s 
+							transition: opacity 0.3s linear 0.1s
+	.intro__content-grid
+		position: absolute
+		top: 50%
+		left: 0
+		right: 0
+		z-index: 3
+		+r(1024) 
+			display: none
+		.intro__content-grid-action
+			font-size: 0
+			line-height: 0
+			white-space: nowrap
+			.intro__content-grid-item
+				display: inline-block
+				vertical-align: middle
+				+rem(height, 100px)
+				width: 20%
+				position: relative
+				transition: transform 0.3s linear 0.1s
+				span 
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					+rem(width, 100px)
+					+rem(height, 100px)
+					border-radius: 100%
+					background-color: $lGrey
+					cursor: pointer
+				&.active
+					transform: translate(0, -100%)
 	.intro__scroll
 		position: absolute
 		+rem(bottom, 30px)
@@ -505,3 +514,254 @@ body
 		color: $black
 		display: block
 		+rem(padding, 0 35px)
+
+.row
+	+rem(padding, 50px 0 0)
+	.title
+		font-family: "Heavy"
+		+rem(font-size, 36px)
+		color: $bordeaux
+		text-align: center
+		+rem(margin, 20px 0 40px)
+
+.content
+	&:not(:first-of-type)
+		border-top: 1px solid #eeeeee
+
+.category-product
+	font-size: 0
+	+rem(margin-bottom, 50px)
+	+r(992)
+		text-align: center
+	.category-product__item
+		display: inline-block
+		vertical-align: top
+		width: 20%
+		+r(992)
+			width: 33.33%
+			+rem(margin-bottom, 20px)
+		+r(568)
+			width: 50%
+		+r(375)
+			width: 100%
+		+rem(padding, 5px 5px 20px)
+		transition: background-color 0.3s ease
+		position: relative
+		&:hover
+			background-color: $white
+			z-index: 2
+			.category-product__cover
+				+rem(top, -10px)
+				+rem(bottom, -5px)
+				+rem(left, -5px)
+				+rem(right, -5px)
+				box-shadow: 0 0 95px rgba(78,78,78,.38)
+		.category-product__cover
+			position: absolute
+			+rem(top, 0)
+			+rem(bottom, 0)
+			+rem(left, 0)
+			+rem(right, 0)
+			z-index: -1
+			transition: all 0.15s ease
+		.image__cover
+			+rem(margin-bottom, 15px)
+			text-align: center
+			img
+				max-width: 100%
+		.category-product__title
+			text-align: center
+			font-size: 13px
+			+rem(padding, 0 25px)
+			text-transform: uppercase
+			+rem(letter-spacing, 0.5px)
+			line-height: 1.5
+.cooperation
+	font-size: 0
+	+rem(margin-bottom, 50px)
+	.cooperation__item
+		display: inline-block
+		vertical-align: top
+		width: 33.33%
+		+r(992)
+			width: 50%
+			+rem(margin-bottom, 40px)
+		+r(480)
+			width: 100%
+			text-align: center
+		.image__cover
+			float: left
+			+rem(width, 80px)
+			+rem(padding-right, 30px)
+			+r(1280)
+				float: none
+				+rem(margin-bottom, 15px)
+			+r(992)
+				float: left
+			+r(568)
+				float: none
+				display: inline-block
+			img
+				max-width: 100%
+				+rem(max-height, 50px)
+		.overlay
+			overflow: hidden
+			max-width: 75%
+			text-align: left
+			+r(568)
+				max-width: 95%
+			+r(480)
+				text-align: center
+		.cooperation__title
+			font-family: "Medium"
+			+rem(font-size, 24px)
+			color: $black
+		.cooperation__text
+			+rem(font-size, 17px)
+			color: $lGrey
+			line-height: 1.4
+.products-popular
+	.products-popular__gallery
+		position: relative
+
+.products-navi
+	.products-arrow
+		display: inline-block
+		vertical-align: middle
+		+rem(width, 15px)
+		+rem(height, 28px)
+		background-size: cover
+		cursor: pointer
+		&.products-arrow__left
+			background-image: url(../img/icons/icon-8.png)
+		&.products-arrow__right
+			background-image: url(../img/icons/icon-7.png)
+		&.disabled
+			opacity: 0.5
+			pointer-events: none
+	.products-counter
+		display: inline-block
+		vertical-align: middle
+		+rem(font-size, 13px)
+		+rem(margin, 0 15px)
+		.products__counter-current, .products__counter-separator, .products__counter-all
+			display: inline-block
+			vertical-align: middle
+.products-popular
+	+rem(margin-bottom, 50px)
+	position: relative
+	.products-popular__gallery
+		+rem(padding, 20px 0 40px)
+		+r(768)
+			text-align: center
+		position: relative
+		.products-navi
+			position: absolute
+			+rem(top, -72px)
+			+rem(right, 0)
+			+r(768)
+				position: relative
+				top: auto
+				+rem(margin-top, 40px)
+				display: inline-block
+.products-item
+	width: 25%
+	display: inline-block
+	vertical-align: top
+	+rem(padding, 0 20px)
+	text-align: center
+	a 
+		display: inline-block
+		max-width: 215px
+		&:hover
+			.products-descr
+				.name-collection
+					color: $bordeaux
+	.image__cover
+		+rem(margin-bottom, 25px)
+		img
+			max-width: 100%
+	.products-descr
+		text-align: center
+		.name-item
+			+rem(font-size, 13px)
+			text-transform: uppercase
+			font-family: "Light"
+			color: $lGrey
+			+rem(margin-bottom, 5px)
+			+rem(letter-spacing, 0.6px)
+		.name-collection
+			+rem(font-size, 17px)
+			color: $dGrey
+			+rem(margin-bottom, 15px)
+			transition: color 0.3s ease
+		.price
+			font-family: "Demi"
+			+rem(font-size, 17px)
+			color: $dGrey
+
+.products-properties
+	font-size: 0
+	+rem(margin, 0 -5px 50px)
+	+rem(padding-top, 40px)
+	.products-properties__item
+		+rem(padding, 0 5px)
+		display: inline-block
+		vertical-align: top
+		width: 33.33%
+		+r(568)
+			width: 100%
+			&:not(:last-of-type)
+				+rem(margin-bottom, 40px);
+		.image__cover
+			position: relative
+			img 
+				max-width: 100%
+				display: block
+		.products-properties__descr
+			display: table
+			width: 100%
+			background-color: $lGrey
+			position: relative
+			+clr
+			+rem(padding, 25px 28px)
+			.products-name
+				display: table-cell
+				vertical-align: middle
+				width: 50%
+				font-size: 13px
+				+rem(letter-spacing, 0.9px)
+				text-transform: uppercase
+				color: $white
+				line-height: 1.5
+				font-family: "Light"
+				+r(992)
+					display: inline-block
+					width: 100%
+					+rem(padding-bottom, 25px)
+				+r(568)
+					display: table-cell
+					padding-bottom: 0
+					width: 50%
+					font-size: 11px
+			.products-price 
+				display: table-cell
+				vertical-align: middle
+				width: 50%
+				font-family: "Demi"
+				font-size: 17px
+				color: $white
+				text-align: right
+				+r(992)
+					display: inline-block
+					width: auto
+					position: absolute
+					+rem(right, 28px)
+					+rem(bottom, 25px)
+				+r(568)
+					display: table-cell
+					width: 50%
+					position: relative
+					right: auto
+					bottom: auto
+					font-size: 14px
