@@ -28,12 +28,22 @@ body
 .header
 	background-color: $white
 	+rem(padding, 13px 20px)
-	// +rem(min-height, 100px)
+	// height: 100px
+	+rem(height, 100px)
 	position: fixed
 	box-shadow: 0 0 30px rgba(78,78,78,.23)
 	z-index: 5
 	left: 0
 	right: 0
+	top: 0
+	transform: translateZ(0)
+	will-change: transform
+	transition: transform .2s
+	+r(480)
+		+rem(height, 65px)
+	&.is-hidden
+		transform: translateY(-100%)
+		box-shadow: none
 	.logo
 		+rem(width, 260px)
 		+rem(height, 73px)
@@ -41,6 +51,9 @@ body
 		background-size: cover
 		display: block
 		float: left
+		+r(480)
+			+rem(width, 150px)
+			+rem(height, 41px)
 	.navigation
 		float: right
 		.navigation-item
@@ -195,6 +208,8 @@ body
 				font-family: 'Heavy'
 				+rem(font-size, 38px)
 				color: $white
+				+r(480)
+					+rem(font-size, 30px)
 		.phone__list
 			+rem(margin-bottom, 30px)
 			li
@@ -857,3 +872,113 @@ body
 .tooltipster-arrow-top 
 	.tooltipster-arrow-border
 		border-top-color: $white
+.secondary-nav
+	position: relative
+	z-index: 1
+	clear: both
+	width: 100%
+	background-color: #f3f3f3
+	transform: translateZ(0)
+	will-change: transform
+	transition: transform 0.2s
+	+rem(height, 75px)
+	text-align: center
+	+r(480)
+		+rem(height, 50px)
+	&.fixed
+		position: fixed
+		+rem(top, 100px)
+		&::after
+			content: ''
+			height: 50px
+			background-color: $white
+			position: absolute
+			top: -50px
+			left: 0
+			right: 0
+		+r(480)
+			+rem(top, 65px)
+		&.slide-up
+			transform: translateY(-100px)
+			+r(480)
+				transform: translateY(-61px)
+	ul
+		font-size: 0
+		li
+			display: inline-block
+			vertical-align: middle
+			+rem(margin, 0 15px)
+			a
+				font-family: "Light"
+				+rem(font-size, 13px)
+				color: $dGrey
+				text-transform: uppercase
+				+rem(letter-spacing, 0.5px)
+				display: block
+				+rem(padding, 30px 0)
+				position: relative
+				&.active
+					&::after
+						content: ""
+						position: absolute
+						bottom: 0
+						left: 0
+						right: 0
+						background-color: $bordeaux
+						height: 2px
+
+.container
+	&.secondary-nav-fixed
+		+rem(margin-top, 75px)
+		+r(480)
+			+rem(margin-top, 50px)
+.head
+	+rem(height, 550px)
+	+r(480)
+		+rem(height, 500px)
+	position: relative
+	.head-bg
+		position: absolute
+		top: 0;
+		left: 0;
+		background-size: cover
+		background-position: center
+		right: 0
+		bottom: 0
+		&::after
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background-color: rgba(44,44,41,.3)
+	.head-wrap
+		width: 100%
+		max-width: 590px
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		text-align: center
+		.head-title
+			font-family: "Heavy"
+			+rem(font-size, 48px)
+			color: $white
+			+rem(margin-bottom, 10px)
+			+r(480)
+				+rem(font-size, 28px)
+.breadcrumbs
+	.breadcrumbs-item
+		position: relative
+		display: inline-block
+		&:not(:last-of-type)
+			+rem(margin-right, 25px)
+			&::after
+				content: "—"
+				color: $Grey
+				position: absolute
+				+rem(right, -20px)
+		a
+			color: $Grey
+			+rem(font-size, 17px)

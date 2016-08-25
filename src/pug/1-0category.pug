@@ -1,0 +1,37 @@
+extends _layout
+
+block title
+	title 1-0category
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/catalog.jpg)")
+			.head-wrap
+				.head-title Внешние двери и&nbsp;входные конструкции
+				ul.breadcrumbs
+					-var bread = ['Главная', 'Каталог']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+		nav.secondary-nav
+			ul
+				-var current = "Входные двери внутренние"
+				mixin scroll(scrollId, title)
+					li
+						a(href=scrollId data-scroller class={active: title === current}) #{title}
+				+scroll("#scroll-1", "Входные двери внутренние")
+				+scroll("#scroll-2", "Входные группы и наружные двери")
+		section.container
+			.sc-section(id="scroll-1")
+				.content
+					.l-center
+						.row
+							.title Входные двери внутренние
+			.sc-section(id="scroll-2")
+				.content
+					.l-center
+						.row
+							.title Входные группы и наружные двери
+	include includes/_footer

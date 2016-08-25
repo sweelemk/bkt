@@ -274,4 +274,139 @@ $(document).ready(function() {
 					tips(aria, $(this));
 			});
 	} tipInit();
+
+	//scrolling
+	function scrolling() {
+		var mainHeader = $('.header'),
+			secondaryNavigation = $('.secondary-nav'),
+			//this applies only if secondary nav is below intro section
+			belowNavHeroContent = $('.container'),
+			headerHeight = mainHeader.innerHeight();
+		
+		//set scrolling variables
+		var scrolling = false,
+			previousTop = 0,
+			currentTop = 0,
+			scrollDelta = 10,
+			scrollOffset = 150;
+
+		// mainHeader.on('click', '.nav-trigger', function(event){
+		// 	// open primary navigation on mobile
+		// 	event.preventDefault();
+		// 	mainHeader.toggleClass('nav-open');
+		// });
+
+		$(window).on('scroll', function(){
+			if( !scrolling ) {
+				scrolling = true;
+				(!window.requestAnimationFrame)
+					? setTimeout(autoHideHeader, 250)
+					: requestAnimationFrame(autoHideHeader);
+			}
+		});
+
+		$(window).on('resize', function(){
+			headerHeight = mainHeader.innerHeight();
+		});
+
+		function autoHideHeader() {
+			var currentTop = $(window).scrollTop();
+
+			( belowNavHeroContent.length > 0 ) 
+				? checkStickyNavigation(currentTop)
+				: checkSimpleNavigation(currentTop);
+
+		   	previousTop = currentTop;
+			scrolling = false;
+		}
+
+		function checkSimpleNavigation(currentTop) {
+		    if (previousTop - currentTop > scrollDelta) {
+		    	//if scrolling up...
+		    	mainHeader.removeClass('is-hidden');
+		    } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
+		    	//if scrolling down...
+		    	mainHeader.addClass('is-hidden');
+		    }
+		}
+
+		function checkStickyNavigation(currentTop) {
+			var secondaryNavOffsetTop = belowNavHeroContent.offset().top - secondaryNavigation.height() - mainHeader.innerHeight();
+			
+			if (previousTop >= currentTop ) {
+		    	//if scrolling up... 
+		    	if( currentTop < secondaryNavOffsetTop ) {
+		    		//secondary nav is not fixed
+		    		mainHeader.removeClass('is-hidden');
+		    		secondaryNavigation.removeClass('fixed slide-up');
+		    		belowNavHeroContent.removeClass('secondary-nav-fixed');
+		    	} else if( previousTop - currentTop > scrollDelta ) {
+		    		//secondary nav is fixed
+		    		mainHeader.removeClass('is-hidden');
+		    		secondaryNavigation.removeClass('slide-up').addClass('fixed'); 
+		    		belowNavHeroContent.addClass('secondary-nav-fixed');
+		    	}
+		    	
+		    } else {
+		    	//if scrolling down...	
+		 	  	if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
+		    		mainHeader.addClass('is-hidden');
+		    		secondaryNavigation.addClass('fixed slide-up');
+		    		belowNavHeroContent.addClass('secondary-nav-fixed');
+
+		    	} else if( currentTop > secondaryNavOffsetTop ) { 
+		    		mainHeader.removeClass('is-hidden');
+		    		secondaryNavigation.addClass('fixed').removeClass('slide-up');
+		    		belowNavHeroContent.addClass('secondary-nav-fixed');
+		    	}
+
+		    }
+		}
+	} scrolling();
+
+	//scroll section
+	function scrollSection(){
+		var scrolling = false;
+		var contentSection = $(".sc-section"),
+			navigation = $(".secondary-nav"),
+			navigationItems = navigation.find("a");
+
+		$(window).on("scroll", checkScroll);
+
+		navigation.on("click", "a", function(event){
+			event.preventDefault();
+			smoothScroll($(this.hash))
+		});
+
+		function checkScroll() {
+			if(!scrolling) {
+				scrolling = true;
+				(!window.requestAnimationFrame) ? setTimeout(updateSections, 300) : window.requestAnimationFrame(updateSections);
+			}
+		}
+
+		function updateSections() {
+			var halfWindowHeight = $(window).height() / 2,
+				scrollTop = $(window).scrollTop();
+
+			contentSection.each(function(){
+				var section = $(this),
+					sectionId = section.attr("id"),
+					navigationItem = navigationItems.filter('[href^="#'+ sectionId +'"]');
+
+				((section.offset().top - halfWindowHeight < scrollTop) && (section.offset().top + section.height() - halfWindowHeight > scrollTop))
+					? navigationItem.addClass("active")
+					: navigationItem.removeClass("active");
+			});
+			scrolling = false;
+		}
+
+		function smoothScroll(target) {
+			$("body, html").animate({
+				"scrollTop": target.offset().top
+			}, 450);
+		}
+
+	} scrollSection();
+
 });
