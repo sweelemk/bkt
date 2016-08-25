@@ -246,4 +246,32 @@ $(document).ready(function() {
 		propDescr.matchHeight();
 		
 	} matchProp();
+
+	//tooltipster
+	function tips(id, tip) {
+
+		tip.tooltipster({
+			animation: 'fade',
+			maxWidth: 330,
+			speed: 500,
+			contentAsHTML: true,
+			functionInit: function(){
+				return $('#' + id).html();
+			},
+			functionReady: function(){
+				$('#' + id).attr('aria-hidden', false);
+			},
+			functionAfter: function(){
+				$('#' + id).attr('aria-hidden', true);
+			}
+		});
+	};
+
+	function tipInit() {
+		var tip = $('.tips');
+			tip.each(function(){
+					var aria = $(this).attr('aria-describedby')
+					tips(aria, $(this));
+			});
+	} tipInit();
 });

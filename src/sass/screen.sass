@@ -5,6 +5,7 @@
 // @import lib/svgfont
 @import lib/variables
 @import lib/slick
+@import lib/tooltipster
 // 
 @import main
 
@@ -27,8 +28,9 @@ body
 .header
 	background-color: $white
 	+rem(padding, 13px 20px)
-	+rem(min-height, 100px)
+	// +rem(min-height, 100px)
 	position: fixed
+	box-shadow: 0 0 30px rgba(78,78,78,.23)
 	z-index: 5
 	left: 0
 	right: 0
@@ -567,8 +569,15 @@ body
 		.image__cover
 			+rem(margin-bottom, 15px)
 			text-align: center
+			+rem(height, 246px)
+			overflow: hidden
+			position: relative
 			img
-				max-width: 100%
+				max-height: 100%
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				position: absolute
 		.category-product__title
 			text-align: center
 			font-size: 13px
@@ -679,8 +688,20 @@ body
 					color: $bordeaux
 	.image__cover
 		+rem(margin-bottom, 25px)
+		+rem(height, 420px)
+		overflow: hidden
+		position: relative
 		img
-			max-width: 100%
+			max-height: 100%
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	.badge
+		width: 100%
+		text-align: center
+		+rem(top, -47px)
+		+rem(margin-bottom, -36px)
 	.products-descr
 		text-align: center
 		.name-item
@@ -704,64 +725,135 @@ body
 	font-size: 0
 	+rem(margin, 0 -5px 50px)
 	+rem(padding-top, 40px)
+	+r(992)
+		text-align: center
 	.products-properties__item
 		+rem(padding, 0 5px)
 		display: inline-block
 		vertical-align: top
 		width: 33.33%
+		text-align: left
+		+r(992)
+			width: 50%
+			+rem(margin-bottom, 10px)
 		+r(568)
 			width: 100%
 			&:not(:last-of-type)
 				+rem(margin-bottom, 40px);
 		.image__cover
 			position: relative
+			// +rem(height, 420px)
+			overflow: hidden
 			img 
 				max-width: 100%
 				display: block
+				// position: absolute
+				// top: 50%
+				// left: 50%
+				// transform: translate(-50%, -50%)
+		.prop
+			position: absolute
+			+rem(top, 28px)
+			+rem(left, 28px)
+			+rem(right, 58px)
+			.prop-item
+				display: inline-block
+				vertical-align: middle
+				+rem(height, 30px)
+				+rem(line-height, 30px)
+				font-family: "Light"
+				+rem(font-size, 17px)
+				color: $dGrey
+				background-color: $white
+				+rem(border-radius, 15px)
+				+rem(padding, 0 10px)
+				+rem(letter-spacing, 0.5px)
+				+rem(margin-bottom, 10px)
+				&:not(:last-of-type)
+					+rem(margin-right, 10px)
 		.products-properties__descr
-			display: table
+			display: inline-block;
 			width: 100%
 			background-color: $lGrey
 			position: relative
 			+clr
 			+rem(padding, 25px 28px)
-			.products-name
-				display: table-cell
-				vertical-align: middle
-				width: 50%
-				font-size: 13px
-				+rem(letter-spacing, 0.9px)
-				text-transform: uppercase
-				color: $white
-				line-height: 1.5
-				font-family: "Light"
-				+r(992)
-					display: inline-block
-					width: 100%
-					+rem(padding-bottom, 25px)
-				+r(568)
+			.products-properties__overlay
+				display: table
+				width: 100%
+				height: 100%
+				.products-name
 					display: table-cell
-					padding-bottom: 0
+					vertical-align: middle
 					width: 50%
-					font-size: 11px
-			.products-price 
-				display: table-cell
-				vertical-align: middle
-				width: 50%
-				font-family: "Demi"
-				font-size: 17px
-				color: $white
-				text-align: right
-				+r(992)
-					display: inline-block
-					width: auto
-					position: absolute
-					+rem(right, 28px)
-					+rem(bottom, 25px)
-				+r(568)
+					font-size: 13px
+					+rem(letter-spacing, 0.9px)
+					text-transform: uppercase
+					color: $white
+					line-height: 1.5
+					font-family: "Light"
+					+r(992)
+						display: inline-block
+						width: 100%
+						+rem(padding-bottom, 25px)
+					+r(568)
+						display: table-cell
+						padding-bottom: 0
+						width: 50%
+					+r(375)
+						font-size: 11px
+				.products-price 
 					display: table-cell
+					vertical-align: middle
 					width: 50%
-					position: relative
-					right: auto
-					bottom: auto
-					font-size: 14px
+					font-family: "Demi"
+					font-size: 17px
+					color: $white
+					text-align: right
+					+r(992)
+						display: inline-block
+						width: auto
+						position: absolute
+						+rem(right, 28px)
+						+rem(bottom, 25px)
+					+r(568)
+						display: table-cell
+						width: 50%
+						position: relative
+						right: auto
+						bottom: auto
+					+r(375)
+						font-size: 14px
+.badge
+	position: relative
+	.badge-item
+		+rem(width, 32px)
+		+rem(height, 32px)
+		border-radius: 100%
+		box-shadow: 0 0 16px rgba(78,78,78,.23)
+		display: inline-block
+		background-color: $white
+		position: relative
+		+rem(margin, 0 5px)
+		img
+			+rem(width, 15px)
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+
+.tooltip 
+	display: none
+.tooltipster-default
+	border: none
+	background-color: $white
+	box-shadow: 0 0 35px rgba(78,78,78,.23)
+	.tooltipster-content
+		font-family: "Book"
+		color: $dGrey
+		+rem(font-size, 13px)
+		line-height: 1.4
+		+rem(padding, 10px 15px)
+.tooltipster-arrow-top 
+	.tooltipster-arrow-border
+		border-top-color: $white
