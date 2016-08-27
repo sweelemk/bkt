@@ -202,10 +202,10 @@ $(document).ready(function() {
 	//popular product slider
 	function sliderPopular() {
 		var carousel = $(".products-gallery"),
-			next = carousel.parent().find(".products-arrow__right"),
-			prev = carousel.parent().find(".products-arrow__left"),
-			current = carousel.parent().find(".products__counter-current"),
-			all = carousel.parent().find(".products__counter-all");
+			next = carousel.parent().find(".rotator-arrow__right"),
+			prev = carousel.parent().find(".rotator-arrow__left"),
+			current = carousel.parent().find(".rotator__counter-current"),
+			all = carousel.parent().find(".rotator__counter-all");
 
 		// carousel.on("init", function(){
 		// 	var l = $(this).find('.slick-slide').length;
@@ -275,6 +275,70 @@ $(document).ready(function() {
 
 	} sliderPopular();
 
+	//reviews slider
+	function sliderReviews() {
+		var carousel = $(".reviews-carousel"),
+			next = carousel.parent().find(".rotator-arrow__right"),
+			prev = carousel.parent().find(".rotator-arrow__left"),
+			current = carousel.parent().find(".rotator__counter-current"),
+			all = carousel.parent().find(".rotator__counter-all");
+
+		// carousel.on("init", function(){
+		// 	var l = $(this).find('.slick-slide').length;
+		// 	all.text(l);
+		// 	if(l === $(this).find(".slick-active").length){
+		// 		$(".products-navi").hide();
+		// 	} else {
+		// 		current.text(1);
+		// 		prev.addClass("disabled")
+		// 	}
+			
+		// });
+
+		// carousel.on("afterChange", function(){
+		// 	var curr = $(this).slick("slickCurrentSlide") + 1,
+		// 		l = ($(this).find('.slick-slide').length / 2) + 1;
+		// 	current.text(curr);
+
+		// 	if(curr !== 1) {
+		// 		prev.removeClass("disabled");
+		// 	} else if(curr === 1) {
+		// 		prev.addClass("disabled");
+		// 	}
+
+		// 	if(curr !== l) {
+		// 		next.removeClass("disabled");
+		// 	} else if(curr === l) {
+		// 		next.addClass("disabled");
+		// 	}
+
+		// });
+
+		carousel.slick({
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			arrows: false,
+			infinite: false,
+			responsive: [
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 1
+					}
+				}
+			]
+		});
+
+		next.on("click", function(){
+			carousel.slick("slickNext");
+		});
+
+		prev.on("click", function(){
+			carousel.slick("slickPrev");
+		});
+
+	} sliderReviews();
+
 	//matchHeight product properties
 	function matchProp() {
 		var propItem = $(".products-properties__item"),
@@ -334,6 +398,7 @@ $(document).ready(function() {
 		// });
 
 		$(window).on('scroll', function(){
+			if($(window).width() < 992 || secondaryNavigation.length === 0) return;
 			if( !scrolling ) {
 				scrolling = true;
 				(!window.requestAnimationFrame)
@@ -440,10 +505,36 @@ $(document).ready(function() {
 
 		function smoothScroll(target) {
 			$("body, html").animate({
-				"scrollTop": target.offset().top
+				"scrollTop": target.offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
 			}, 450);
 		}
 
 	} scrollSection();
 
+	//yandex maps
+	if ($('#map-contact').length) {
+		ymaps.ready(initMapContact);
+	};
+	function initMapContact() {
+		var yMap = new ymaps.Map("map-contact",{
+			center: [55.649728, 37.55195],
+			zoom: 15,
+			controls: []
+		});
+
+		var placemark = new ymaps.Placemark([55.649728, 37.55195],{
+				balloonContent: "1117342, г. Москва, РФ, ул. Введенского, д.1, стр.1"
+			}, {
+				preset: 'islands#icon',
+				iconColor: "#e03732"
+			});
+
+		yMap.geoObjects.add(placemark);
+
+		yMap.controls.add("zoomControl", {
+			size: "small"
+		});
+
+		yMap.behaviors.disable('scrollZoom');
+	};
 });

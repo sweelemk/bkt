@@ -1,0 +1,45 @@
+extends _layout
+
+block title
+	title 3-0contacts
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/contacts.jpg)")
+			.head-wrap
+				.head-title О компании
+				ul.breadcrumbs
+					-var bread = ['Главная', 'О компании']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+		section.container
+				.content
+					.l-center
+						.row
+							.title Шоурум в Москве
+							.contacts
+								.contacts-item
+									.contacts-head Адрес
+									.contacts-body
+										p 1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1
+								.contacts-item
+									.contacts-head Телефон
+									.contacts-body
+										.phones
+											span.phones-item +7 (495) 775 35 68
+											span.phones-item +7 (495) 775 35 69
+											span.phones-item +7 (495) 775 35 68/69 (факс)
+								.contacts-item
+									.contacts-head E-mail
+									.contacts-body
+										a.mail(href="mailto:office-BKT@ckf.ru") office-BKT@ckf.ru
+								.contacts-item
+									a.btn.btn-red(data-modal="calback")
+										span Форма обратной связи
+							.map#map-contact
+						.row
+							.title Юридический адрес
+	include includes/_footer

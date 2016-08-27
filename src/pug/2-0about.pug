@@ -1,0 +1,106 @@
+extends _layout
+
+block title
+	title 2-0about
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/2-0about.jpg)")
+			.head-wrap
+				.head-title О компании
+				ul.breadcrumbs
+					-var bread = ['Главная', 'О компании']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+		nav.secondary-nav
+			ul
+				-var current = "Входные двери внутренние"
+				mixin scroll(scrollId, title)
+					li
+						a(href=scrollId data-scroller class={active: title === current}) #{title}
+				+scroll("#scroll-1", "история компании")
+				+scroll("#scroll-2", "миссия")
+				+scroll("#scroll-3", "преимущества")
+				+scroll("#scroll-4", "отзывы")
+		section.container
+				.content
+					.l-center
+						.row
+							.sc-section(id="scroll-1")
+								.title История нашей компании
+								.history
+									.columns
+										.columns__left
+											.video-container
+												<iframe width="100%" height="100%" src="https://www.youtube.com/embed/YexBIuZ9pik" frameborder="0" allowfullscreen></iframe>
+										.columns__right
+											.chronology
+												.chronology-item
+													.chronology-years 2000
+													.chronology-text 
+														p Компания основана в Республике Беларусь в 2000 году как иностранное предприятие. После разработки необходимой производственной документа&shy;ции, приобретения оборудования и освоения технологии в 2002 году начал&shy;ся серийный выпуск продукции.
+												.chronology-item
+													.chronology-years 2004
+													.chronology-text 
+														p В целях оптимизации работы с Российскими партнерамив 2004 году заре&shy;гистрировано дочерние предприятия ООО “ВКТ Констракшн - М” (г. Москва). За годы деятельности компании, продукция ИП «ВКТ Констракшн» ООО установлена более чем на 1500 знаковых объектов в РБ, РФ, Украине. Компа&shy;ния “ВКТ Констракшн” является резидентом Свободной Экономической Зоны «Минск».
+							.sc-section.mission(id="scroll-2")
+								.title Наша миссия
+								.mission-conteiner
+									p Двери bkt открывают пространство для жизни, эффективной работы, комфортного отдыха и гармоничного проживания. Используя мировой опыт и достижения в области технологий производства и применяемых материалов, мы более 12 лет проектируем и производим специальные двери и конструкции для общественных зданий и помещений. Удовлетворяя потребности наших клиентов, мы всегда заботимся о том, чтобы наша продукция была строго функциональна, эстетически безупречна и индивидуальна. Убедитесь в этом сами!
+							.sc-section(id="scroll-3")
+								.title Преимущества
+								.cooperation
+									.cooperation__item
+										.image__cover
+											img(src="img/icons/icon-1.png")
+										.overlay
+											.cooperation__title Качество
+											.cooperation__text Мы используем только безупречные материалы в производстве дверей
+									.cooperation__item
+										.image__cover
+											img(src="img/icons/icon-2.png")
+										.overlay
+											.cooperation__title 10 лет гарантии
+											.cooperation__text Полное гарантийное обслуживание с момента покупки
+									.cooperation__item
+										.image__cover
+											img(src="img/icons/icon-3.png")
+										.overlay
+											.cooperation__title Современный дизайн
+											.cooperation__text Используется при изготовлении наших дверей, не гниёт и очень долговечно
+								hr
+							.sc-section(id="scroll-4")
+								.title Отзывы клиентов
+								.reviews
+									.reviews-carousel
+										.reviews-item
+											.reviews-text
+												| Благодарю за проделаную работу! Отличное качетсво дверей и очень крутой сервис в сочетании с доступными ценами делает вашу компанию номер один в Москве.
+											.reviews-author
+												| Владимир Смирнов, 08.08.2016
+										.reviews-item
+											.reviews-text
+												| Благодарю за проделаную работу! Отличное качетсво дверей и очень крутой сервис в сочетании с доступными ценами делает вашу компанию номер один в Москве.
+											.reviews-author
+												| Владимир Смирнов, 08.08.2016
+										.reviews-item
+											.reviews-text
+												| Благодарю за проделаную работу! Отличное качетсво дверей и очень крутой сервис в сочетании с доступными ценами делает вашу компанию номер один в Москве.
+											.reviews-author
+												| Владимир Смирнов, 08.08.2016
+										.reviews-item
+											.reviews-text
+												| Благодарю за проделаную работу! Отличное качетсво дверей и очень крутой сервис в сочетании с доступными ценами делает вашу компанию номер один в Москве.
+											.reviews-author
+												| Владимир Смирнов, 08.08.2016
+									.rotator-navi
+										.rotator-arrow.rotator-arrow__left
+										.rotator-counter
+											.rotator__counter-current 1
+											.rotator__counter-separator /
+											.rotator__counter-all 4
+										.rotator-arrow.rotator-arrow__right
+	include includes/_footer

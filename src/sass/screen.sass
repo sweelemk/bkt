@@ -24,7 +24,8 @@ html
 body
 	font-family: 'Book'
 	background-color: $white
-
+.out
+	overflow: hidden
 .header
 	background-color: $white
 	+rem(padding, 13px 20px)
@@ -530,7 +531,15 @@ body
 		+rem(font-size, 17px)
 		color: $black
 		display: block
-		+rem(padding, 0 35px)
+		+rem(padding, 0 35px)		
+		font-family: "Light"
+		+rem(letter-spacing, 0.9px)
+		+rem(height, 38px)
+		+rem(border-radius, 19px)
+	&.btn-red
+		background-color: $bordeaux
+		span
+			color: $white
 
 .row
 	+rem(padding, 50px 0 0)
@@ -541,9 +550,9 @@ body
 		text-align: center
 		+rem(margin, 20px 0 40px)
 
-.content
-	&:not(:first-of-type)
-		border-top: 1px solid #eeeeee
+// .content
+// 	&:not(:first-of-type)
+// 		border-top: 1px solid #eeeeee
 
 .category-product
 	font-size: 0
@@ -602,7 +611,7 @@ body
 			line-height: 1.5
 .cooperation
 	font-size: 0
-	+rem(margin-bottom, 50px)
+	+rem(margin-bottom, 90px)
 	.cooperation__item
 		display: inline-block
 		vertical-align: top
@@ -648,27 +657,28 @@ body
 	.products-popular__gallery
 		position: relative
 
-.products-navi
-	.products-arrow
+.rotator-navi
+	text-align: center
+	.rotator-arrow
 		display: inline-block
 		vertical-align: middle
 		+rem(width, 15px)
 		+rem(height, 28px)
 		background-size: cover
 		cursor: pointer
-		&.products-arrow__left
+		&.rotator-arrow__left
 			background-image: url(../img/icons/icon-8.png)
-		&.products-arrow__right
+		&.rotator-arrow__right
 			background-image: url(../img/icons/icon-7.png)
 		&.disabled
 			opacity: 0.5
 			pointer-events: none
-	.products-counter
+	.rotator-counter
 		display: inline-block
 		vertical-align: middle
 		+rem(font-size, 13px)
 		+rem(margin, 0 15px)
-		.products__counter-current, .products__counter-separator, .products__counter-all
+		.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
 			display: inline-block
 			vertical-align: middle
 .products-popular
@@ -679,7 +689,7 @@ body
 		+r(768)
 			text-align: center
 		position: relative
-		.products-navi
+		.rotator-navi
 			position: absolute
 			+rem(top, -72px)
 			+rem(right, 0)
@@ -883,6 +893,8 @@ body
 	transition: transform 0.2s
 	+rem(height, 75px)
 	text-align: center
+	+r(992)
+		display: none
 	+r(480)
 		+rem(height, 50px)
 	&.fixed
@@ -930,8 +942,10 @@ body
 .container
 	&.secondary-nav-fixed
 		+rem(margin-top, 75px)
-		+r(480)
-			+rem(margin-top, 50px)
+		+r(992)
+			margin-top: 0
+		// +r(480)
+		// 	+rem(margin-top, 50px)
 .head
 	+rem(height, 550px)
 	+r(480)
@@ -982,3 +996,218 @@ body
 		a
 			color: $Grey
 			+rem(font-size, 17px)
+hr
+	padding: 0
+	margin: 0
+	background-color: #eeeeee
+	height: 1px
+	border: none
+	outline: none
+	margin: 0 -33.33%
+.row
+	+clr
+.products-preview
+	// +rem(margin-bottom, 90px)
+	.products-preview__item
+		.preview__item-columns
+			+rem(padding, 35px 0)
+			&.columns-left
+				.preview__item-columns-left
+					order: 1
+				.preview__item-columns-right
+					order: 2
+			&.columns-right
+				.preview__item-columns-left
+					order: 2
+					+r(992)
+						order: 1
+				.preview__item-columns-right
+					order: 1
+					+r(992)
+						order: 2
+			display: flex
+			align-content: center
+			align-items: center
+			flex-wrap: wrap
+			.preview__item-columns-left
+				width: 50%
+				+r(992)
+					width: 100%
+					+rem(margin-bottom, 30px)
+				img 
+					display: block
+					max-width: 100%
+			.preview__item-columns-right
+				width: 50%
+				+r(992)
+					width: 100%
+				+rem(padding, 0 30px)
+				text-align: center
+				.category
+					font-family: "Light"
+					font-size: 13px
+					text-transform: uppercase
+					color: $category
+					letter-spacing: 0.9px
+					+rem(margin-bottom, 40px)
+				.category-material
+					font-family: "Medium"
+					+rem(font-size, 24px)
+					color: $dGrey
+					+rem(margin-bottom, 10px)
+				.category-descr
+					+rem(font-size, 17px)
+					color: $categoryDescr
+					+rem(max-width, 380px)
+					margin: 0 auto 20px
+				.price
+					font-family: "Demi"
+					+rem(font-size, 17px)
+					color: $dGrey
+					+rem(margin-bottom, 20px)
+				.badge
+					+rem(margin-bottom, 20px)
+.columns
+	+clr
+	.columns__left
+		width: 50%
+		float: left
+		+r(992)
+			width: 100%
+			float: none
+			+rem(margin-bottom, 40px)
+	.columns__right
+		width: 50%
+		float: right
+		+r(992)
+			width: 100%
+			float: none
+.history
+	+rem(margin-bottom, 90px)
+.video-container
+	+rem(padding-right, 70px)
+	max-width: 100%
+	iframe
+		+rem(height, 315px)
+	+r(992)
+		padding-right: 0
+.chronology
+	+rem(margin-top, -5px)
+	+rem(padding, 0 10px)
+	.chronology-item
+		padding-right: 11.5%
+		&:not(:last-of-type)
+			+rem(margin-bottom, 20px)
+	.chronology-years
+		font-family: "Medium"
+		+rem(font-size, 38px)
+		color: $dGrey
+		+rem(margin-bottom, 10px)
+p
+	+rem(font-size, 17px)
+	color: $categoryDescr
+	&:not(:last-of-type)
+		+rem(margin-bottom, 10px)
+.mission
+	+rem(padding, 40px 0 90px)
+	+rem(margin-bottom, 90px)
+	&::before
+		content: ""
+		left: -50%
+		right: -50%
+		bottom: 0
+		top: 0
+		background-image: url(../img/mission.jpg)
+		position: absolute
+		background-size: cover
+		z-index: -1
+	.mission-conteiner
+		text-align: center
+		+rem(max-width, 1060px)
+		margin: 0 auto
+		p
+			+rem(font-size, 24px)
+			color: $black
+			+r(768)
+				+rem(font-size, 17px)
+.sc-section
+	position: relative
+	+rem(padding, 0 0 40px 0)
+	+clr
+	&.mission
+		+rem(padding, 40px 0 90px)
+.reviews
+	+rem(margin, 0 0 90px 0)
+	font-size: 0
+	.reviews-item
+		display: inline-block
+		width: 50%
+		+rem(padding, 70px 100px 75px 50px)
+		+r(768)
+			+rem(padding-right, 20px)
+			+rem(padding-left, 20px)
+		position: relative
+		&::before
+			content: "“"
+			+rem(font-size, 400px)
+			color: #ececec
+			font-family: "Helvetica"
+			position: absolute
+			+rem(line-height, 315px)
+			+rem(top, 0)
+			+rem(left, -25px)
+			opacity: .64
+			z-index: -1
+			+r(480)
+				+rem(font-size, 300px)
+				+rem(left, -20px)
+				+rem(top, -15px)
+		.reviews-text
+			font-family: "Medium"
+			+rem(font-size, 24px)
+			+rem(margin-bottom, 15px)
+			+r(480)
+				+rem(font-size, 17px)
+		.reviews-author
+			+rem(font-size, 17px)
+			color: $categoryDescr
+.contacts
+	+rem(padding, 20px 0 60px)
+	font-size: 0
+	+r(992)
+		+rem(margin-bottom, -40px)
+	.contacts-item
+		display: inline-block
+		vertical-align: top
+		width: 25%
+		padding-right: 3%
+		&:last-of-type
+			padding-right: 0
+		+r(992)
+			width: 50%
+			+rem(margin-bottom, 40px)
+		+r(480)
+			width: 100%
+		.contacts-head
+			font-family: "Medium"
+			+rem(font-size, 24px)
+			color: $black
+			+rem(margin-bottom, 25px)
+	.phones
+		.phones-item
+			+rem(font-size, 17px)
+			color: $categoryDescr
+			display: inline-block
+			width: 100%
+			&:not(:last-of-type)
+				+rem(margin-bottom, 8px)
+.mail 
+	+rem(font-size, 17px)
+	color: $black
+[data-modal]
+	cursor: pointer
+
+.map
+	width: 100%
+	+rem(height, 443px)
+	// +rem(margin-bottom, 20px)
