@@ -187,6 +187,19 @@ body
 			left: 0
 			overflow: hidden
 			z-index: -1
+			&::after
+				content: ""
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d1d1b+0,1d1d1b+100&1+34,0+100 */
+				background: -moz-linear-gradient(top,  rgba(29,29,27,1) 0%, rgba(29,29,27,1) 34%, rgba(29,29,27,0) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top,  rgba(29,29,27,1) 0%,rgba(29,29,27,1) 34%,rgba(29,29,27,0) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom,  rgba(29,29,27,1) 0%,rgba(29,29,27,1) 34%,rgba(29,29,27,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1b', endColorstr='#001d1d1b',GradientType=0 ); /* IE6-9 */
+
 			div 
 				position: absolute
 				width: 100%
