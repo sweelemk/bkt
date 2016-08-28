@@ -1,0 +1,55 @@
+extends _layout
+
+block title
+	title 5-0for-dealer
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/catalog.jpg)")
+			.head-wrap
+				.head-title Дилерам
+				ul.breadcrumbs
+					-var bread = ['Главная', 'Дилерам']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+		nav.secondary-nav
+			ul
+				-var current = "Условия"
+				mixin scroll(scrollId, title)
+					li
+						a(href=scrollId data-scroller class={active: title === current}) #{title}
+				+scroll("#scroll-1", "Условия")
+				+scroll("#scroll-2", "как с нами связаться")
+		section.container
+				.content
+					.l-center
+						.row
+							.dealers
+								.sc-section(id="scroll-1")
+									.title Условия для дилеров
+									.columns
+										.columns__left
+											p Мы всегда рады новым потенциальным партнерам и приглашаем вас к взаимовыгодному сотрудничеству, независимо от того, в каком вы регионе страны работаете. Мы предлагаем самые выгодные варианты по продаже дверей оптом.
+										.columns__right
+											ul.dotted
+												li Выгодные условия оплаты;
+												li дилерская система скидок;
+												li рекламная поддержка;
+												li первоочередное получение заказанных позиций.
+									hr
+								.sc-section(id="scroll-2")
+									.title Свяжитесь с нами
+									.contact-us
+										p Для начала сотрудничества звоните нам или отправляйте свои контактные данные в форму обратной связи:
+										.contact-us__columns
+											.contact-us__columns-left
+												.phones
+													span.phones-item +7 (495) 775 35 68
+													span.phones-item +7 (495) 775 35 69
+											.contact-us__columns-right
+												a.btn.btn-red(data-modal="callback")
+													span Форма обратной связи
+	include includes/_footer	

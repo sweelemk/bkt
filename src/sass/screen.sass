@@ -1201,14 +1201,14 @@ p
 			+rem(font-size, 24px)
 			color: $black
 			+rem(margin-bottom, 25px)
-	.phones
-		.phones-item
-			+rem(font-size, 17px)
-			color: $categoryDescr
-			display: inline-block
-			width: 100%
-			&:not(:last-of-type)
-				+rem(margin-bottom, 8px)
+.phones
+	.phones-item
+		+rem(font-size, 17px)
+		color: $categoryDescr
+		display: inline-block
+		width: 100%
+		&:not(:last-of-type)
+			+rem(margin-bottom, 8px)
 .address
 	+rem(margin-bottom, 50px)
 	&.columns
@@ -1469,3 +1469,60 @@ p
 		color: $categoryDescr
 		+rem(margin-bottom, 60px)
 		text-align: center
+.dealers
+	.columns
+		+rem(padding-bottom, 60px)
+		.columns__left
+			padding-right: 10%
+			+r(992)
+				padding-right: 0
+.dotted
+	li
+		+rem(padding-left, 34px)
+		position: relative
+		+rem(font-size, 24px)
+		+rem(margin-bottom, 5px)
+		+r(480)
+			+rem(font-size, 19px)
+		color: $black
+		&::before
+			content: ""
+			width: 5px
+			height: 5px
+			display: block
+			position: absolute
+			+rem(top, 14px)
+			left: 0
+			background-color: $black
+			+r(480)
+				+rem(top, 10px)
+.contact-us
+	+rem(max-width, 650px)
+	width: 100%
+	text-align: center
+	margin: 0 auto
+	p 
+		+rem(font-size, 24px)
+		+rem(margin-bottom, 25px)
+		color: $black
+		+r(480)
+			+rem(font-size, 19px)
+	.phones
+		.phones-item
+			+rem(font-size, 24px)
+			+r(480)
+				+rem(font-size, 19px)
+			color: $black
+	.contact-us__columns
+		font-size: 0
+		.contact-us__columns-left,
+		.contact-us__columns-right
+			display: inline-block
+			vertical-align: middle
+			text-align: center
+			width: 50%
+			+r(480)
+				width: 100%
+		.contact-us__columns-left
+			+r(480)
+				+rem(margin-bottom, 30px)

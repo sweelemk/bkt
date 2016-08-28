@@ -1,0 +1,18 @@
+extends _layout
+
+block title
+	title 404
+
+block content
+	include includes/_header
+	.wrapper
+		section.head.error-pages
+			.head-bg(style="background-image: url(img/404.jpg)")
+			.head-wrap
+				.head-title Ошибка 404
+				ul.breadcrumbs
+					-var bread = ['Главная', '404']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+	include includes/_footer	

@@ -611,4 +611,14 @@ $(document).ready(function() {
 		});
 	}
 
+	//error page
+	function errorPage(){
+		var er = $(".error-pages");
+
+		er.height($(window).height() - $(".header").innerHeight());
+	};
+
+	$(window).on("load resize", function(){
+		errorPage()
+	});
 });
