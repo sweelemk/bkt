@@ -586,4 +586,21 @@ $(document).ready(function() {
 	$(window).on("load resize", function(){
 		errorPage()
 	});
+
+	//footer animation
+	function footerAnimating() {
+		var wPos = $(window).scrollTop(),
+			footer = $(".footer"),
+			footerPos = footer.offset().top - (footer.innerHeight()/1.5);
+
+		if(wPos >= footerPos) {
+			footer.addClass("animating")
+		}	else {
+			footer.removeClass("animating")
+		}
+	};
+
+	$(window).on("load scroll", function(){
+		footerAnimating()
+	})
 });

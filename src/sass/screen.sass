@@ -173,6 +173,12 @@ body
 	+r(768)
 		max-width: 100%
 .footer
+	&.animating
+		.footer-top
+			.footer__scale
+				div
+					transform: scale(1.5)
+					transition: transform 30s linear
 	.footer-top
 		+rem(padding, 58px 0 20px)
 		position: relative
@@ -207,7 +213,6 @@ body
 				left: 0
 				height: 100%
 				transform: scale(1)
-				transition: transform 5s ease
 				background-size: cover
 				background-position: 50% 80%
 	.contancts
