@@ -1393,3 +1393,79 @@ p
 	.btn
 		margin: 0 auto
 		display: block
+
+.search
+	display: inline-block
+	+rem(max-width, 1060px)
+	width: 100%
+	+rem(margin-top, 40px)
+	+r(768)
+		+rem(max-width, 480px)
+	.form
+		position: relative
+		+rem(margin, 0 -235px)
+		+r(1080)
+			+rem(margin, 0 -100px)
+		+r(992)
+			+rem(margin, 0 -50px)
+		+r(768)
+			margin: 0 20px
+		.icon
+			+rem(width, 18px)
+			+rem(height, 19px)
+			background-image: url(../img/icons/icon-10.png)
+			background-size: cover
+			background-repeat: no-repeat
+			position: absolute
+			+rem(left, 25px)
+			+rem(top, 24px)
+			display: block
+			+r(768)
+				display: none
+		input
+			background-color: $white
+			+rem(height, 66px)
+			+rem(border-radius, 33px)
+			width: 100%
+			+rem(padding, 0 200px 0 60px)
+			+rem(font-size, 17px)
+			+r(768)
+				+rem(height, 50px)
+				+rem(padding-right, 60px)
+		.btn 
+			position: absolute
+			+rem(right, 15px)
+			+rem(top, 16px)
+			+rem(min-width, 163px)
+			+r(768)
+				+rem(width, 50px)
+				+rem(height, 50px)
+				+rem(top, 0)
+				right: 0
+				background-image: url(../img/icons/icon-10.png)
+				background-size: 20px
+				background-position: center
+				background-repeat: no-repeat
+				+rem(min-width, 18px)
+				background-color: transparent
+				+rem(border-top-right-radius, 33px)
+				+rem(border-bottom-right-radius, 33px)
+				span
+					display: none
+.results
+	font-size: 0
+	+rem(padding, 0 0 90px 0)
+	+rem(margin-bottom, -50px)
+	.products-item
+		+rem(margin-bottom, 50px)
+		+r(992)
+			width: 33.33%
+		+r(768)
+			width: 50%
+		+r(480)
+			width: 100%
+	.no-results
+		+rem(font-size, 17px)
+		color: $categoryDescr
+		+rem(margin-bottom, 60px)
+		text-align: center

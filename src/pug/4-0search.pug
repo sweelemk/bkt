@@ -1,0 +1,152 @@
+extends _layout
+
+block title
+	title 4-0search
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/search.jpg)")
+			.head-wrap
+				.head-title Поиск
+				ul.breadcrumbs
+					-var bread = ['Главная', 'Поиск']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+				.search
+					.form
+						.field-body
+							.icon
+							input(type="text")
+							button(class="btn btn-red" type="submit")
+								span Искать
+		section.container
+				.content
+					.l-center
+						.row
+							.search-results
+								.title По результатам поиска найдено 
+									div 7 позиций
+								.results
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+									.products-item
+										a(href="#")
+											.image__cover
+												img(src="img/door.jpg" alt="")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+											.products-descr
+												.name-item Двери с деревянной коробкой
+												.name-collection Морфей
+												.price от 21 000Р
+	include includes/_footer

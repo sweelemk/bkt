@@ -1,0 +1,34 @@
+extends _layout
+
+block title
+	title 4-1search
+
+block content
+	include includes/_header
+	.wrapper
+		section.head
+			.head-bg(style="background-image: url(img/search.jpg)")
+			.head-wrap
+				.head-title Поиск
+				ul.breadcrumbs
+					-var bread = ['Главная', 'Поиск']
+					each name in bread
+						li.breadcrumbs-item
+							a(href="#") #{name}
+				.search
+					.form
+						.field-body
+							.icon
+							input(type="text")
+							button(class="btn btn-red" type="submit")
+								span Искать
+		section.container
+				.content
+					.l-center
+						.row
+							.search-results
+								.title По вашему запросу ничего 
+									div не найдено
+								.results
+									.no-results Попробуйте сформуливаться запрос иначе.
+	include includes/_footer
