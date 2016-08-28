@@ -1,0 +1,35 @@
+.modal__wrap(data-modal-wrap="callback")
+	.modal.modal-front
+		.btn-close
+		.modal__title Форма обратной связи
+		.form
+			form.js-validate
+				.field
+					.field-head
+						span Ваше имя*
+					.field-body
+						input(type="text" data-validation="length" data-validation-length="min2")
+				.field
+					.field-head
+						span E-mail*
+					.field-body
+						input(type="text" data-validation="email")
+				.field
+					.field-head
+						span телефон*
+					.field-body
+						input.numeric(type="text" data-validation="length" data-validation-length="6-20")
+				.field
+					.field-head
+						span сообщение
+					.field-body
+						textarea
+				.field
+					button.btn.btn-red(type="submit")
+						span Отправить
+	.modal.modal-back
+		.btn-close
+		.modal__title Благодарим вас!
+		.modal__text 
+			p В течение рабочего дня с вами свяжется наш менеджер. Спасибо, что выбрали нас!
+		.close Закрыть

@@ -500,4 +500,69 @@ $(document).ready(function() {
 
 		yMap.behaviors.disable('scrollZoom');
 	};
+
+	// validation
+	var form_validate = $(".js-validate")
+	if(form_validate.length) {
+		form_validate.each(function(){
+			var form_this = $(this);
+			$.validate({
+				form: form_this,
+				borderColorOnError: true,
+				scrollToTopOnError : false,
+				onSuccess: function($form) {
+					$($form).parents(".modal__wrap").find(".modal-front").removeClass("open");
+					setTimeout(function(){
+						$($form).parents(".modal__wrap").find(".modal-back").addClass("open");
+						$($form).parents(".modal__wrap").find("form").trigger("reset");
+					}, 500);
+
+					return false;
+				}
+			})
+		});
+	};
+
+	// popups
+	$("[data-modal]").on("click", function(){
+		var data = $(this).data("modal");
+		modalWindow(data);
+		return false;
+	});
+
+	function modalWindow(data) {
+		var popupSelector = $("[data-modal-wrap='" + data + "']"),
+			innerSelector = popupSelector.find(".modal"),
+			duration = 350,
+			close = popupSelector.find(".close"),
+			btnClose = popupSelector.find(".btn-close"),
+			html = $("html");
+
+		html.addClass("modal-open");
+		popupSelector
+					.fadeIn({
+						duration: duration,
+						complete: function (){
+							$(this).find(".modal-front").addClass("open");
+						}
+					});
+
+		close.add(popupSelector).add(btnClose).on("click", function(){
+			if(!popupSelector.find(".modal").hasClass("open")) return;
+
+			popupSelector
+				.fadeOut({
+					duration: duration,
+					complete: function () {
+						$(this).find(".modal-back").removeClass("open");
+						html.removeClass("modal-open");
+					}
+				})
+		});
+
+		innerSelector.on("click", function(event){
+			event.stopPropagation();
+		});
+	}
+
 });

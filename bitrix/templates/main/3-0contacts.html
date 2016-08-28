@@ -80,7 +80,9 @@
                   <div class="contacts-item">
                     <div class="contacts-head">Адрес</div>
                     <div class="contacts-body">
-                      <p>1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1</p>
+                      <div class="location">
+                        <p>1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1</p>
+                      </div>
                     </div>
                   </div>
                   <div class="contacts-item">
@@ -93,12 +95,58 @@
                     <div class="contacts-head">E-mail</div>
                     <div class="contacts-body"><a class="mail" href="mailto:office-BKT@ckf.ru">office-BKT@ckf.ru</a></div>
                   </div>
-                  <div class="contacts-item"><a class="btn btn-red" data-modal="calback"><span>Форма обратной связи</span></a></div>
+                  <div class="contacts-item"><a class="btn btn-red" data-modal="callback"><span>Форма обратной связи</span></a></div>
                 </div>
                 <div class="map" id="map-contact"></div>
               </div>
               <div class="row">
                 <div class="title">Юридический адрес</div>
+                <div class="columns address">
+                  <div class="columns__left">
+                    <div class="contacts">
+                      <div class="contacts-name">Представительство в Москве</div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="location">
+                            <p>1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="phones"><span class="phones-item">+7 (495) 775 35 68</span><span class="phones-item">+7 (495) 775 35 69</span><span class="phones-item">+7 (495) 775 35 68/69 (факс)</span></div>
+                        </div>
+                      </div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="mails"><a class="mail" href="mailto:office-BKT@ckf.ru">office-BKT@ckf.ru</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns__right">
+                    <div class="contacts">
+                      <div class="contacts-name">Завод компании в Минске</div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="location">
+                            <p>220075, г. Минск, Республика Беларусь, ИП «BKT Констракшн» ООО Промзона Шабаны, ул. Селицкого, 27, корпус 1.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="phones"><span class="phones-item">+375 (17) 299 66 38</span><span class="phones-item">+7 (495) 268 13 60</span><span class="phones-item">+375 (33) 311 62 07 (факс)</span><span class="phones-item">+375 (44) 594 64 06 (факс)</span></div>
+                        </div>
+                      </div>
+                      <div class="contacts-items">
+                        <div class="contacts-body">
+                          <div class="mails"><a class="mail" href="mailto:office-BKT@ckf.ru">secretar@bkt.by</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -180,5 +228,50 @@
       </footer>
     </div>
     <!--END out-->
+    <div class="modal__wrap" data-modal-wrap="callback">
+      <div class="modal modal-front">
+        <div class="btn-close"></div>
+        <div class="modal__title">Форма обратной связи</div>
+        <div class="form">
+          <form class="js-validate">
+            <div class="field">
+              <div class="field-head"><span>Ваше имя*</span></div>
+              <div class="field-body">
+                <input type="text" data-validation="length" data-validation-length="min2">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>E-mail*</span></div>
+              <div class="field-body">
+                <input type="text" data-validation="email">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>телефон*</span></div>
+              <div class="field-body">
+                <input class="numeric" type="text" data-validation="length" data-validation-length="6-20">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>сообщение</span></div>
+              <div class="field-body">
+                <textarea></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <button class="btn btn-red" type="submit"><span>Отправить</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal-back">
+        <div class="btn-close"></div>
+        <div class="modal__title">Благодарим вас!</div>
+        <div class="modal__text"> 
+          <p>В течение рабочего дня с вами свяжется наш менеджер. Спасибо, что выбрали нас!</p>
+        </div>
+        <div class="close">Закрыть</div>
+      </div>
+    </div>
   </body>
 </html>

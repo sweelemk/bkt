@@ -24,7 +24,8 @@ block content
 								.contacts-item
 									.contacts-head Адрес
 									.contacts-body
-										p 1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1
+										.location
+											p 1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1
 								.contacts-item
 									.contacts-head Телефон
 									.contacts-body
@@ -37,9 +38,45 @@ block content
 									.contacts-body
 										a.mail(href="mailto:office-BKT@ckf.ru") office-BKT@ckf.ru
 								.contacts-item
-									a.btn.btn-red(data-modal="calback")
+									a.btn.btn-red(data-modal="callback")
 										span Форма обратной связи
 							.map#map-contact
 						.row
 							.title Юридический адрес
+							.columns.address
+								.columns__left
+									.contacts
+										.contacts-name Представительство в Москве
+										.contacts-items
+											.contacts-body
+												.location
+													p 1117342, г. Москва, РФ, ул.&nbsp;Введенского, д.1, стр.1
+										.contacts-items
+											.contacts-body
+												.phones
+													span.phones-item +7 (495) 775 35 68
+													span.phones-item +7 (495) 775 35 69
+													span.phones-item +7 (495) 775 35 68/69 (факс)
+										.contacts-items
+											.contacts-body
+												.mails
+													a.mail(href="mailto:office-BKT@ckf.ru") office-BKT@ckf.ru
+								.columns__right
+									.contacts
+										.contacts-name Завод компании в Минске
+										.contacts-items
+											.contacts-body
+												.location
+													p 220075, г. Минск, Республика Беларусь, ИП «BKT Констракшн» ООО Промзона Шабаны, ул. Селицкого, 27, корпус 1.
+										.contacts-items
+											.contacts-body
+												.phones
+													span.phones-item +375 (17) 299 66 38
+													span.phones-item +7 (495) 268 13 60
+													span.phones-item +375 (33) 311 62 07 (факс)
+													span.phones-item +375 (44) 594 64 06 (факс)
+										.contacts-items
+											.contacts-body
+												.mails
+													a.mail(href="mailto:office-BKT@ckf.ru") secretar@bkt.by
 	include includes/_footer

@@ -255,5 +255,50 @@
       </footer>
     </div>
     <!--END out-->
+    <div class="modal__wrap" data-modal-wrap="callback">
+      <div class="modal modal-front">
+        <div class="btn-close"></div>
+        <div class="modal__title">Форма обратной связи</div>
+        <div class="form">
+          <form class="js-validate">
+            <div class="field">
+              <div class="field-head"><span>Ваше имя*</span></div>
+              <div class="field-body">
+                <input type="text" data-validation="length" data-validation-length="min2">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>E-mail*</span></div>
+              <div class="field-body">
+                <input type="text" data-validation="email">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>телефон*</span></div>
+              <div class="field-body">
+                <input class="numeric" type="text" data-validation="length" data-validation-length="6-20">
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>сообщение</span></div>
+              <div class="field-body">
+                <textarea></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <button class="btn btn-red" type="submit"><span>Отправить</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal-back">
+        <div class="btn-close"></div>
+        <div class="modal__title">Благодарим вас!</div>
+        <div class="modal__text"> 
+          <p>В течение рабочего дня с вами свяжется наш менеджер. Спасибо, что выбрали нас!</p>
+        </div>
+        <div class="close">Закрыть</div>
+      </div>
+    </div>
   </body>
 </html>
