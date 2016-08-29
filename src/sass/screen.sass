@@ -59,6 +59,8 @@ body
 			+rem(height, 41px)
 	.navigation
 		float: right
+		+r(1366)
+			+rem(padding-right, 9px)
 		.navigation-item
 			font-family: 'Book'
 			text-transform: uppercase
@@ -68,6 +70,8 @@ body
 			display: inline-block
 			vertical-align: middle
 			+rem(padding, 29px)
+			+r(1170)
+				+rem(padding, 29px 20px)
 			&:hover
 				color: $bordeaux
 		+r(992)
@@ -79,6 +83,7 @@ body
 	.nav 
 		display: inline-block
 		position: relative
+		vertical-align: middle
 		.nav-trigger
 			display: block
 			+rem(padding, 29px 0)
@@ -159,6 +164,57 @@ body
 							color: $white
 						[class*="level-"]
 							display: block
+	.header-search
+		+rem(max-width, 300px)
+		width: 100%
+		display: inline-block
+		vertical-align: middle
+		text-align: left
+		+rem(padding-left, 40px)
+		+r(1280)
+			+rem(max-width, 320px)
+		+r(1170)
+			+rem(max-width, 190px)
+			+rem(padding-left, 20px)
+		+r(992)
+			display: none
+		.form
+			.field
+				display: inline-block
+				vertical-align: middle
+				margin-bottom: 0
+				&:first-of-type
+					width: 30px
+				&:last-of-type
+					width: 225px
+					+r(1280)
+						width: 200px
+					+r(1170)
+						width: 110px
+				input
+					+rem(max-width, 260px)
+					text-transform: uppercase
+					font-family: "Light"
+					font-size: 13px
+					letter-spacing: 0.9px
+					border-bottom: 1px solid transparent
+					width: 30%
+					transition: border-color 0.3s ease, width 0.3s ease
+					+r(1280)
+						width: 100%
+					&:focus
+						border-color: $bordeaux
+						width: 100%
+				button
+					+rem(width, 18px)
+					+rem(height, 19px)
+					background-image: url(../img/icons/icon-10.png)
+					background-size: cover
+					background-color: transparent
+					background-repeat: no-repeat
+					+rem(margin-right, 10px)
+					position: relative
+					top: 2px
 .l-center
 	max-width: 1310px
 	padding: 0 15px
@@ -330,7 +386,7 @@ body
 				padding-right: 20%
 				a
 					+rem(font-size, 13px)
-					color: $white
+					color: $lGrey
 					transition: color 0.3s ease
 					text-transform: uppercase
 					+rem(padding, 10px 0)
@@ -558,6 +614,10 @@ body
 		+rem(border-radius, 19px)
 	&.btn-red
 		background-color: $bordeaux
+		span
+			color: $white
+	&.btn-black
+		background-color: $dGrey
 		span
 			color: $white
 
@@ -958,7 +1018,29 @@ body
 						right: 0
 						background-color: $bordeaux
 						height: 2px
-
+	.btn
+		float: right
+		+rem(margin, 20px 45px 0 0)
+	.btn-back
+		float: left
+		+rem(margin, 28px 0 0 20px)
+.btn-back
+	display: inline-block
+	span 
+		font-family: "Light"
+		font-size: 13px
+		text-transform: uppercase
+		letter-spacing: .9px
+	i
+		+rem(width, 24px)
+		+rem(height, 18px)
+		background-image: url(../img/icons/b-arrow.png)
+		background-size: cover
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		top: -1px
+		+rem(margin-right, 15px)
 .container
 	&.secondary-nav-fixed
 		+rem(margin-top, 75px)
@@ -1544,3 +1626,282 @@ p
 		.contact-us__columns-left
 			+r(480)
 				+rem(margin-bottom, 30px)
+
+.row-products
+	position: relative
+	+rem(padding-right, 361px)
+	+r(992)
+		padding-right: 0
+.produts-sliders
+	+rem(margin-bottom, 50px)
+	+rem(min-height, 663px)
+	+r(992)
+		min-height: auto
+	position: relative
+	.products-slider_container
+		position: relative
+		.produts-slider_main
+			position: relative
+			.resize
+				+rem(width, 23px)
+				+rem(height, 23px)
+				+rem(top, 18px)
+				+rem(right, 18px)
+				background-image: url(../img/icons/resize.png)
+				background-size: cover
+				position: absolute
+				z-index: 2
+			.products-slider__item
+				+rem(min-height, 663px)
+				+r(992)
+					min-height: auto
+				.image__cover
+					position: relative
+					z-index: 1
+					img
+						max-width: none
+						display: block
+						+rem(max-height, 663px)
+						+r(992)
+							max-width: 100%
+							max-height: auto
+		.rotator-navi
+			position: absolute
+			+rem(bottom, 30px)
+			+rem(right, 35px)
+			+r(568)
+				+rem(bottom, 25px)
+				+rem(right, 20px)
+			z-index: 2
+			.rotator-counter
+				.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
+					color: $white
+			.rotator-arrow
+			 	&.rotator-arrow__left
+			 		background-image: url(../img/icons/icon-12.png)
+			 	&.rotator-arrow__right
+			 		background-image: url(../img/icons/icon-11.png)
+		.badge
+			+rem(bottom, 30px)
+			left: 50%
+			transform: translate(-50%, 0)
+			position: absolute
+			z-index: 2
+			+r(568)
+				transform: none
+				+rem(left, 20px)
+				+rem(bottom, 20px)
+	.products-slider_fur
+		+rem(width, 243px)
+		position: absolute
+		+rem(bottom, 19px)
+		+rem(left, 15px)
+		+r(992)
+			display: none
+		.product-slider_main-fur
+			position: relative
+			.products-slider__item
+				& > .image__cover
+						+rem(height, 166px)
+						img
+							display: block
+							max-width: 100%
+				.descr
+					background-color: $bordeaux
+					+rem(padding, 15px 28px 10px)
+					text-align: center
+					.image__cover
+						+rem(margin-bottom, 20px)
+						img
+							+rem(width, 51px)
+							+rem(height, 51px)
+							border-radius: 100%
+							display: block
+							margin: 0 auto
+					.name
+						+rem(font-size, 17px)
+						color: $white
+					.collection
+						+rem(font-size, 17px)
+						color: $white
+		.slick-arrow
+			+rem(width, 10px)
+			+rem(height, 17px)
+			top: 70%
+			&.slick-prev
+				background-image: url(../img/icons/icon-12.png)
+				background-size: cover
+				+rem(left, 20px)
+				&::before
+					display: none
+			&.slick-next
+				background-image: url(../img/icons/icon-11.png)
+				background-size: cover
+				+rem(right, 20px)
+				&::before
+					display: none
+.sidebar-form
+	position: absolute
+	+rem(top, 50px)
+	right: 0
+	+rem(width, 361px)
+	border-top: 4px solid $bordeaux
+	background-color: $white
+	text-align: center
+	+rem(padding, 40px 40px 0)
+	box-shadow: 0 16px 40px rgba(0,0,0,.25)
+	font-size: 0
+	+rem(min-height, 663px)
+	+r(992)
+		position: relative
+		right: auto
+		top: auto
+		+rem(padding-bottom, 20px)
+		width: 100%
+		+rem(margin-bottom, 40px)
+		min-height: auto
+	+r(568)
+		+rem(padding, 40px 20px 20px)
+	.category-title
+		font-family: "Light"
+		font-size: 13px
+		color: $category
+		text-transform: uppercase
+		+rem(margin-bottom, 20px)
+	.category-name
+		font-family: "Medium"
+		+rem(font-size, 24px)
+		color: $dGrey
+		+rem(margin-bottom, 15px)
+	.category-descr
+		+rem(margin-bottom, 30px)
+	.category-form__title
+		font-family: "Light"
+		font-size: 13px
+		color: $dGrey
+		text-transform: uppercase
+		+rem(margin-bottom, 20px)
+	.field
+		+rem(margin-bottom, 17px)
+		text-align: left
+		&.btn
+			text-align: center
+		.field-body
+			.field-item
+				display: block
+				+rem(height, 38px)
+				+rem(line-height, 36px)
+				border: 1px solid $category
+				+rem(padding, 0 34px 0 17px)
+				position: relative
+				span
+					+rem(font-size, 17px)
+					color: $dGrey
+				.icon
+					position: absolute
+					+rem(width, 6px)
+					+rem(height, 12px)
+					background-image: url(../img/icons/icon-7.png)
+					background-repeat: no-repeat
+					background-size: cover
+					display: block
+					top: 50%
+					+rem(margin-top, -6px)
+					+rem(right, 12px)
+			.price
+				font-family: "Demi"
+				+rem(font-size, 17px)
+				text-align: center
+				+rem(margin, 25px 0 35px)
+				+r(992)
+					+rem(margin, 8px 0 10px)
+			.btn
+				display: inline-block
+		+r(992)
+			width: 50%
+			display: inline-block
+			vertical-align: top
+			&:nth-child(odd)
+				padding-right: 10px
+			&:nth-child(even)
+				padding-left: 10px
+		+r(568)
+			width: 100%
+			&:nth-child(odd)
+				padding-right: 0px
+			&:nth-child(even)
+				padding-left: 0px
+.wrapper-products
+	+r(992)
+		.secondary-nav
+			display: block
+			height: auto
+			+rem(padding, 20px 0 30px)
+			overflow: hidden
+			position: fixed
+			.btn-back
+				margin-top: 8px
+			.btn
+				margin-top: 0
+			ul
+				display: none
+			& + .container
+				padding-top: 90px
+	+r(480)
+		.secondary-nav
+			.btn-back
+				display: inline-block
+				margin-left: 0
+				margin-bottom: 20px
+				float: none
+				width: 100%
+			.btn
+				float: none
+				display: inline-block
+				margin-right: 0
+			& + .container
+				padding-top: 120px
+
+	// +r(480)
+	// 	.secondary-nav
+	// 		height: auto
+	.row
+		.title
+			text-align: left
+	hr
+		margin: 0
+	.columns
+		+rem(margin-bottom, 50px)
+	.sc-section
+		+rem(padding-bottom, 20px)
+
+.h2
+	+rem(font-size, 24px)
+	color: $dGrey
+.columns
+	.h2
+		padding-right: 15%
+.colors
+	font-size: 0
+	+rem(margin, 0 -20px)
+	+r(480)
+		text-align: center
+	figure
+		+rem(width, 200px)
+		display: inline-block
+		vertical-align: top
+		text-align: center
+		+rem(margin, 0 20px 40px)
+		img
+			display: block
+			margin: 0 auto 30px
+			+rem(width, 191px)
+			+rem(height, 191px)
+			border-radius: 100%
+		fugcaption
+			font-family: "Light"
+			font-size: 13px
+			color: $dGrey
+			text-transform: uppercase
+			text-align: center
+			+rem(letter-spacing, 0.5px)

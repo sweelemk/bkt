@@ -491,11 +491,12 @@ $(document).ready(function() {
 		var scrolling = false;
 		var contentSection = $(".sc-section"),
 			navigation = $(".secondary-nav"),
+			navA = navigation.find("ul a"),
 			navigationItems = navigation.find("a");
 
 		$(window).on("scroll", checkScroll);
 
-		navigation.on("click", "a", function(event){
+		navA.on("click", "a", function(event){
 			event.preventDefault();
 			smoothScroll($(this.hash))
 		});
@@ -648,5 +649,69 @@ $(document).ready(function() {
 
 	$(window).on("load scroll", function(){
 		footerAnimating()
-	})
+	});
+
+
+	//slider products inner
+	function productSlider() {
+		var carousel = $(".produts-slider_main"),
+			next = carousel.parent().find(".rotator-arrow__right"),
+			prev = carousel.parent().find(".rotator-arrow__left"),
+			current = carousel.parent().find(".rotator__counter-current"),
+			all = carousel.parent().find(".rotator__counter-all");
+
+		carousel.on("init", function(){
+			var l = $(this).find('.slick-slide').length;
+			all.text(l);
+			if(l === $(this).find(".slick-active").length){
+				$(".products-navi").hide();
+			} else {
+				prev.addClass("disabled")
+			}
+		});
+
+		carousel.on("afterChange", function(){
+			var curr = $(this).slick("slickCurrentSlide") + 1,
+				l = ($(this).find('.slick-slide').length - $(this).find('.slick-active').length) + 1;
+			current.text(curr);
+
+			if(curr !== 1) {
+				prev.removeClass("disabled");
+			} else if(curr === 1) {
+				prev.addClass("disabled");
+			}
+
+			if(curr !== l) {
+				next.removeClass("disabled");
+			} else if(curr === l) {
+				next.addClass("disabled");
+			}
+
+		});
+
+		carousel.slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			infinite: false
+		});
+
+		next.on("click", function(){
+			carousel.slick("slickNext");
+		});
+
+		prev.on("click", function(){
+			carousel.slick("slickPrev");
+		});
+	} productSlider();
+
+	function sliderFurn() {
+		var carousel = $(".product-slider_main-fur");
+
+		carousel.slick({
+			infinite: false,
+			slidesToShow: 1,
+			slidesToScroll: 1
+		})
+	} sliderFurn();
 });

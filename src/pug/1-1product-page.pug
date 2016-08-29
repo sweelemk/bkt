@@ -1,0 +1,183 @@
+extends _layout
+
+block title
+	title 1-1product-page
+
+block content
+	include includes/_header
+	.wrapper.wrapper-products
+		nav.secondary-nav
+			a.btn-back(href="#")
+				span 
+					i
+					| Назад в раздел
+			a(href="#" class="btn btn-black")
+				span Получить консультацию
+			ul
+				-var current = "Описание"
+				mixin scroll(scrollId, title)
+					li
+						a(href=scrollId data-scroller class={active: title === current}) #{title}
+				+scroll("#scroll-1", "Описание")
+				+scroll("#scroll-2", "Варианты отделки")
+				+scroll("#scroll-3", "преимущества")
+				+scroll("#scroll-4", "комплектация")
+
+		section.container
+				.content
+					.l-center
+						.row.row-products
+							.produts-sliders
+								.products-slider_container
+									.produts-slider_main
+										.products-slider__item
+											.resize
+											.image__cover
+												img(src="img/product.jpg")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+										.products-slider__item
+											.resize
+											.image__cover
+												img(src="img/product.jpg")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+										.products-slider__item
+											.resize
+											.image__cover
+												img(src="img/product.jpg")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+										.products-slider__item
+											.resize
+											.image__cover
+												img(src="img/product.jpg")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+										.products-slider__item
+											.resize
+											.image__cover
+												img(src="img/product.jpg")
+											.badge
+												.badge-item.tips(aria-describedby="tip1")
+													.tooltip#tip1(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-4.png")
+												.badge-item.tips(aria-describedby="tip2")
+													.tooltip#tip2(role="tooltip")
+														p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
+													img(src="img/icons/icon-5.png")
+									.rotator-navi
+										.rotator-arrow.rotator-arrow__left
+										.rotator-counter
+											.rotator__counter-current 1
+											.rotator__counter-separator /
+											.rotator__counter-all 4
+										.rotator-arrow.rotator-arrow__right
+								.products-slider_fur
+									.product-slider_main-fur
+										.products-slider__item
+											.image__cover
+												img(src="img/furniture.jpg")
+											.descr
+												.image__cover
+													img(src="img/designer.png")
+												.name Дизайн: Zaha Hadid
+												.collection Се́рия: ZH Duemilacinque
+										.products-slider__item
+											.image__cover
+												img(src="img/furniture.jpg")
+											.descr
+												.image__cover
+													img(src="img/designer.png")
+												.name Дизайн: Zaha Hadid
+												.collection Се́рия: ZH Duemilacinque
+							.sidebar-form
+								.form
+									.category-title Входные двери внутренние
+									.category-name Входные двери Гранит L
+									.category-descr
+										p Современные входные металлические двери в квартиру способны выполнять намного более важное назначение, нежели просто конструкция
+									.category-form__title Конструктор двери
+									form
+										.field
+											.field-body
+												.field-item(data-modal="size")
+													span Выберите размер
+													i.icon
+										.field
+											.field-body
+												.field-item(data-modal="lining")
+													span Выберите облицовку
+													i.icon
+										.field
+											.field-body
+												.field-item(data-modal="color")
+													span Выберите цвет
+													i.icon
+										.field
+											.field-body
+												.field-item(data-modal="equipment")
+													span Выберите комплектацию
+													i.icon
+										.field
+											.field-body
+												.price от 26 250Р
+										.field.btn
+											.field-body
+												a.btn.btn-red
+													span Заказать
+							.sc-section(id="scroll-1")
+								.title Описание
+								.columns
+									.columns__left
+										.h2 Входные двери Гранит L — как за&nbsp;каменной стеной
+									.columns__right
+										p Супертеплая система “Стандарт 3 SW” это в своем роде новый стандарт в теплоизоляции светопрозрачных конструкций отвечающий повышенным требованиям к теплосбережению. Преимущества стали в комбинации с теплоизоляционным материалом высочайшего качества, из которого производится “термомост” позволяет получать превосходный дизайн дверей и перегородок со значительно увеличенными габаритами конструкций.
+								hr
+							.sc-section(id="scroll-2")
+								.title Варианты отделки
+								.columns
+									.columns__left
+										.h2 Более 250 доступных цветов и&nbsp;3 варианта 
+									.columns__right
+										p Супертеплая система “Стандарт 3 SW” это в своем роде новый стандарт в теплоизоляции светопрозрачных конструкций отвечающий повышенным требованиям к теплосбережению. Преимущества стали в комбинации с теплоизоляционным материалом высочайшего качества.
+								.colors
+									figure
+										img(src="img/surface.png")
+										fugcaption порошковая окраска
+									figure
+										img(src="img/surface.png")
+										fugcaption окраска автоэмалью
+									figure
+										img(src="img/surface.png")
+										fugcaption окраска жидкими красками
+	include includes/_footer
