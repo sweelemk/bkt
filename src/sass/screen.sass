@@ -221,7 +221,7 @@ body
 	margin: 0 auto
 	+clr
 	+r(1280)
-		max-width: 1170px
+		max-width: 1150px
 	+r(1170)
 		max-width: 970px
 	+r(992)
@@ -1634,9 +1634,9 @@ p
 		padding-right: 0
 .produts-sliders
 	+rem(margin-bottom, 50px)
-	+rem(min-height, 663px)
+	+rem(max-height, 663px)
 	+r(992)
-		min-height: auto
+		max-height: auto
 	position: relative
 	.products-slider_container
 		position: relative
@@ -1652,9 +1652,9 @@ p
 				position: absolute
 				z-index: 2
 			.products-slider__item
-				+rem(min-height, 663px)
+				+rem(max-height, 663px)
 				+r(992)
-					min-height: auto
+					max-height: auto
 				.image__cover
 					position: relative
 					z-index: 1
