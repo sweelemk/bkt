@@ -23,6 +23,8 @@ html
 		font-size: 15px
 	&.modal-open
 		overflow: hidden
+		body
+			overflow: visible!important
 body
 	font-family: 'Book'
 	background-color: $white
@@ -1472,6 +1474,7 @@ p
 			text-transform: uppercase
 			color: $categoryDescr
 	.field-body
+		position: relative
 		input, textarea
 			border: 1px solid #a5a5a5
 			+rem(height, 32px)
@@ -1490,6 +1493,12 @@ p
 			resize: none
 			+rem(height, 78px)
 			+rem(padding, 5px 17px)
+		input[type="radio"]
+			position: absolute
+			top: 0
+			left: 0
+			opacity: 0
+			visibility: hidden
 	.btn
 		margin: 0 auto
 		display: block
@@ -1794,9 +1803,15 @@ p
 				border: 1px solid $category
 				+rem(padding, 0 34px 0 17px)
 				position: relative
+				overflow: hidden
 				span
 					+rem(font-size, 17px)
 					color: $dGrey
+					text-overflow: ellipsis
+					white-space: nowrap
+					display: block
+					width: 100%
+					overflow: hidden
 				.icon
 					position: absolute
 					+rem(width, 6px)
@@ -1898,10 +1913,290 @@ p
 			+rem(width, 191px)
 			+rem(height, 191px)
 			border-radius: 100%
-		fugcaption
+		figcaption
 			font-family: "Light"
 			font-size: 13px
 			color: $dGrey
 			text-transform: uppercase
 			text-align: center
 			+rem(letter-spacing, 0.5px)
+
+.modal__wrap
+	.form
+		+rem(max-width, 480px)
+	&.modal__wrap-size
+		font-size: 0
+		.field
+			width: 50%
+			display: inline-block
+			vertical-align: top
+			text-align: left
+			+r(568)
+				width: 100%
+				text-align: center
+			&:first-child
+				+rem(padding-right, 10px)
+				+r(568)
+					padding-right: 0
+			&:last-child
+				+rem(padding-left, 10px)
+				+r(568)
+					padding-left: 0
+		.field-body
+			&:not(:last-of-type)
+				+rem(margin-bottom, 15px)
+			input
+				width: 0
+				&:checked
+					& + label
+						background-color: #ebfff0
+						&::before
+							opacity: 1
+			label
+				transition: background-color 0.3s ease
+				cursor: pointer
+				display: inline-block
+				+rem(padding, 0 15px 0 48px)
+				+rem(height, 38px)
+				+rem(line-height, 38px)
+				+rem(border-radius, 19px)
+				position: relative
+				&::after
+					content: ""
+					width: 17px
+					height: 17px
+					border: 1px solid $dGrey
+					border-radius: 100%
+					position: absolute
+					left: 14px
+					top: 50%
+					margin-top: -8px
+					background-color: $white
+				&::before
+					content: ""
+					width: 9px
+					height: 9px
+					background-color: #139a35
+					border-radius: 100%
+					position: absolute
+					left: 18px
+					top: 50%
+					margin-top: -4px
+					z-index: 2
+					opacity: 0
+					transition: opacity 0.3s ease
+				span
+					font-family: "Light"
+					+rem(font-size, 17px)
+					color: $dGrey
+	.form-submit
+		+rem(margin-top, 20px)
+	&.modal__wrap-lining
+		.field
+			width: 33.33%
+			display: inline-block
+			vertical-align: top
+			+r(568)
+				width: 100%
+				text-align: center
+				&:not(:last-of-type)
+					+rem(margin-bottom, 20px)
+			input
+				width: 0
+				&:checked
+					& + label
+						.image__cover
+							border-color: #139a35
+							&::after
+								opacity: 1
+			label
+				+rem(padding, 0 10px)
+				display: inline-block
+				text-align: center
+				cursor: pointer
+				.image__cover
+					+rem(width, 80px)
+					+rem(height, 80px)
+					+rem(margin-bottom, 15px)
+					border: 2px solid transparent
+					border-radius: 100%
+					display: inline-block
+					position: relative
+					transition: border-color 0.3s ease
+					&::after
+						content: ""
+						+rem(width, 16px)
+						+rem(height, 12px)
+						position: absolute
+						top: 50%
+						left: 50%
+						+rem(margin, -6px 0 0 -8px)
+						background-image: url(../img/icons/icon-13.png)
+						background-size: cover
+						opacity: 0
+						transition: opacity 0.3s ease
+				img
+					width: 100%
+					height: 100%
+					display: block
+					border-radius: 100%
+				.caption
+					font-family: "Light"
+					font-size: 13px
+					color: $dGrey
+					line-height: 1.5
+					text-transform: uppercase
+	&.modal__wrap-color
+		.modal
+			+rem(max-width, 735px)
+		.form
+			+rem(max-width, 615px)
+			+r(568)
+				+rem(max-width, 480px)
+			+r(480)
+				+rem(max-width, 270px)
+		.color-rotator
+			+clr
+			+rem(margin-bottom, 15px)
+			.color-item
+				+rem(width, 40px)
+				+rem(height, 40px)
+				+rem(padding, 5px)
+				display: inline-block
+				input
+					width: 0
+					&:checked
+						& + label
+							.color-hex
+								border-color: #139a35
+								&::after
+									opacity: 1
+				label
+					width: 100%
+					height: 100%
+					.color-hex
+						display: block
+						width: 100%
+						height: 100%
+						border-radius: 100%						
+						border: 1px solid transparent
+						transition: border-color
+						position: relative
+						cursor: pointer
+						&::after
+							content: ""
+							+rem(width, 8px)
+							+rem(height, 6px)
+							position: absolute
+							top: 50%
+							left: 50%
+							+rem(margin, -3px 0 0 -4px)
+							background-image: url(../img/icons/icon-13.png)
+							background-size: cover
+							opacity: 0
+							transition: opacity 0.3s ease
+						
+	&.modal__wrap-equipment
+		.modal
+			+rem(max-width, 765px)
+		.form
+			+rem(max-width, 600px)
+			width: 100%
+.tab-container
+	width: 100%
+	.tab-nav
+		width: 100%
+		overflow: auto
+		text-align: center
+		+rem(margin-bottom, 33px)
+		.tab__item
+			display: inline-block
+			vertical-align: top
+			+rem(margin, 0 10px)
+			&.active
+				a
+					border-color: $bordeaux
+			a
+				font-family: "Light"
+				font-size: 13px
+				color: $dGrey
+				text-transform: uppercase
+				display: inline-block
+				+rem(padding, 10px 0)
+				cursor: pointer
+				border-bottom: 2px solid transparent
+	.tab-in
+		.tab-cont
+			display: none
+			.furn-rotator
+				opacity: 0
+				transition: opacity 0.5s ease
+			&.visible
+				.furn-rotator
+					opacity: 1
+
+.furn-rotator
+	font-size: 0
+	+rem(margin-bottom, 20px)
+	.furn-rotator__item
+		width: 33.33%
+		text-align: center
+		display: inline-block
+		.rotator__item-inner
+			display: inline-block
+			width: 100%
+			+rem(max-width, 183px)
+			.image__cover
+				border: 1px solid #a6a6a6
+				+rem(min-height, 170px)
+				position: relative
+				+rem(margin-bottom, 10px)
+				overflow: hidden
+				img
+					max-width: 100%
+					display: block
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+			.descr
+				text-align: left
+				.name
+					+rem(font-size, 17px)
+					color: $black
+					+rem(margin-bottom, 2px)
+				.series
+					+rem(font-size, 17px)
+					color: $black
+		input
+			&:checked
+				& + label
+					.image__cover
+						&::after
+							border-color: #149c1e
+						&::before
+							opacity: 1
+		label
+			cursor: pointer
+			.image__cover
+				&::after
+					content: ""
+					position: absolute
+					border: 2px solid transparent
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					transition: border-color 0.3s ease
+				&::before
+					content: ""
+					+rem(width, 11px)
+					+rem(height, 8px)
+					position: absolute
+					top: 10px
+					right: 13px
+					background-image: url(../img/icons/icon-13.png)
+					background-size: cover
+					opacity: 0
+					transition: opacity 0.3s ease
+					z-index: 4
