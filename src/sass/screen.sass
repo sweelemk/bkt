@@ -49,6 +49,8 @@ body
 	&.is-hidden
 		transform: translateY(-100%)
 		box-shadow: none
+		+r(992)
+			transform: none
 	.logo
 		+rem(width, 260px)
 		+rem(height, 73px)
@@ -110,7 +112,7 @@ body
 			+rem(width, 296px)
 			+rem(left, -46px)
 			top: 100%
-			+rem(padding-top, 15px)
+			+rem(padding-top, 14px)
 			text-align: left
 			display: none
 			.level
@@ -575,8 +577,10 @@ body
 					border-radius: 100%
 					background-color: $lGrey
 					cursor: pointer
+					transition: transform 0.3s linear 0.1s
 				&.active
-					transform: translate(0, -100%)
+					span
+						transform: translate(-50%, -150%)
 	.intro__scroll
 		position: absolute
 		+rem(bottom, 30px)
@@ -605,6 +609,7 @@ body
 	+rem(line-height, 35px)
 	display: inline-block
 	background-color: $white
+	transition: background-color, 0.3s ease
 	span
 		+rem(font-size, 17px)
 		color: $black
@@ -618,6 +623,8 @@ body
 		background-color: $bordeaux
 		span
 			color: $white
+		&:hover
+			background-color: $dGrey
 	&.btn-black
 		background-color: $dGrey
 		span
@@ -1489,10 +1496,16 @@ p
 				border-color: $bordeaux
 				color: $bordeaux
 				background-color: #fdf2f1
+			&.success
+				background-color: $white
+			&:focus
+				background-color: $white
 		textarea
 			resize: none
 			+rem(height, 78px)
 			+rem(padding, 5px 17px)
+			&.no-event
+				background-color: $white
 		input[type="radio"]
 			position: absolute
 			top: 0
@@ -1854,6 +1867,9 @@ p
 			+rem(padding, 20px 0 30px)
 			overflow: hidden
 			position: fixed
+			&.fixed
+				&.slide-up
+					transform: none
 			.btn-back
 				margin-top: 8px
 			.btn
@@ -1893,6 +1909,11 @@ p
 .h2
 	+rem(font-size, 24px)
 	color: $dGrey
+.h3
+	font-family: "Heavy"
+	+rem(font-size, 24px)
+	color: $black
+	+rem(margin-bottom, 20px)
 .columns
 	.h2
 		padding-right: 15%
@@ -2102,13 +2123,41 @@ p
 		.form
 			+rem(max-width, 600px)
 			width: 100%
+.modal__wrap
+	.tab-container
+		.tab-nav
+			width: 100%
+			overflow: auto
+			text-align: center
+			+rem(margin-bottom, 33px)
+			background-color: transparent
+			.tab__item
+				a
+					+rem(padding, 10px 0)
+		.tab-in
+			.tab-cont
+				.furn-rotator
+					text-align: center
+					.furn-rotator__item
+						.rotator__item-
+						.image__cover
+							border: 1px solid #a6a6a6
+							+rem(min-height, 170px)
+							position: relative
+							+rem(margin-bottom, 10px)
+							overflow: hidden
 .tab-container
 	width: 100%
+	+rem(margin-bottom, 50px)
 	.tab-nav
 		width: 100%
 		overflow: auto
-		text-align: center
+		text-align: left
 		+rem(margin-bottom, 33px)
+		background-color: #f3f3f3
+		+rem(padding, 12px 12px 0)
+		ul
+			white-space: nowrap
 		.tab__item
 			display: inline-block
 			vertical-align: top
@@ -2122,7 +2171,7 @@ p
 				color: $dGrey
 				text-transform: uppercase
 				display: inline-block
-				+rem(padding, 10px 0)
+				+rem(padding, 10px 0 15px)
 				cursor: pointer
 				border-bottom: 2px solid transparent
 	.tab-in
@@ -2140,14 +2189,14 @@ p
 	+rem(margin-bottom, 20px)
 	.furn-rotator__item
 		width: 33.33%
-		text-align: center
 		display: inline-block
+		+r(480)
+			text-align: center
 		.rotator__item-inner
 			display: inline-block
 			width: 100%
 			+rem(max-width, 183px)
 			.image__cover
-				border: 1px solid #a6a6a6
 				+rem(min-height, 170px)
 				position: relative
 				+rem(margin-bottom, 10px)
@@ -2159,6 +2208,7 @@ p
 					top: 50%
 					left: 50%
 					transform: translate(-50%, -50%)
+					z-index: -1
 			.descr
 				text-align: left
 				.name
@@ -2200,3 +2250,175 @@ p
 					opacity: 0
 					transition: opacity 0.3s ease
 					z-index: 4
+.modal__wrap-order
+	.modal
+		&.modal-front
+			+rem(max-width, 876px)
+			.form
+				+rem(max-width, 644px)
+				.columns
+					.columns__left
+						+rem(padding-right, 17px)
+						+r(922)
+							width: 50%
+							float: left
+							margin-bottom: 0
+						+r(480)
+							width: 100%
+							padding: 0
+							float: none
+					.columns__right
+						+rem(padding-left, 17px)
+						+r(922)
+							width: 50%
+							float: right
+							margin-bottom: 0
+						+r(480)
+							width: 100%
+							padding: 0
+							float: none
+
+.color-rotator
+	+clr
+	+rem(margin-bottom, 15px)
+	position: relative
+	.color-item		
+		display: inline-block
+		+rem(padding, 10px 0)
+		text-align: center
+		.color-hex
+			+rem(width, 80px)
+			+rem(height, 80px)
+			border-radius: 100%
+			+r(1280)
+				+rem(width, 60px)
+				+rem(height, 60px)
+.colors-variants
+	+rem(margin-bottom, 60px)
+	position: relative
+	.rotator-navi
+		position: absolute
+		top: 0
+		right: 0
+		+r(992)
+			position: relative
+			top: auto
+			right: auto
+.rotator-image
+	position: relative
+.image-cases
+	.image-row
+		font-size: 0
+		+rem(margin-bottom, 50px)
+		+r(568)
+			+rem(margin-bottom, 80px)
+		&.image-row__small
+			.image-row__item
+				width: 33.33%
+				display: inline-block
+				vertical-align: top
+				+rem(padding-right, 30px)
+				+r(568)
+					width: 100%
+					padding-right: 0
+					&:not(:last-of-type)
+						+rem(margin-bottom, 40px)
+			figure
+				+rem(max-width, 275px)
+				+r(568)
+					max-width: 100%
+				img
+					max-width: 100%
+					display: block
+					+rem(margin-bottom, 25px)
+				figcaption
+					font-family: "Light"
+					font-size: 13px
+					color: $dGrey
+					text-transform: uppercase
+					text-align: center
+					letter-spacing: 1px
+		&.image-row__medium
+			.image-row__item
+				width: 50%
+				display: inline-block
+				vertical-align: top
+				+rem(padding-right, 30px)
+				+r(568)
+					width: 100%
+					padding-right: 0
+					&:not(:last-of-type)
+						+rem(margin-bottom, 40px)
+			figure
+				+rem(max-width, 426px)
+				+r(568)
+					max-width: 100%
+				img
+					max-width: 100%
+					display: block
+					+rem(margin-bottom, 25px)
+				figcaption
+					font-family: "Light"
+					font-size: 13px
+					color: $dGrey
+					text-transform: uppercase
+					text-align: left
+					letter-spacing: 1px
+					.caption-title
+						font-family: "Book"
+						+rem(font-size, 24px)
+						color: $black
+						text-transform: none
+						+rem(margin-bottom, 10px)
+					p
+						+rem(font-size, 17px)
+						color: $categoryDescr
+						text-transform: none
+						+rem(letter-spacing, 0.5px)
+		&.image-row__big
+			.rotator-image
+				+rem(margin-bottom, 25px)
+			.image-row__item
+				width: 100%
+				display: inline-block
+				vertical-align: top
+			figure
+				img
+					max-width: 100%
+					display: block
+				figcaption
+					font-family: "Light"
+					font-size: 13px
+					color: $dGrey
+					text-transform: uppercase
+					text-align: left
+					letter-spacing: 1px
+	.caption-title
+		font-family: "Book"
+		+rem(font-size, 24px)
+		color: $black
+		text-transform: none
+		+rem(margin-bottom, 10px)
+	p
+		+rem(font-size, 17px)
+		color: $categoryDescr
+		text-transform: none
+		+rem(letter-spacing, 0.5px)
+	.rotator-navi
+		position: absolute
+		+rem(bottom, 30px)
+		+rem(right, 35px)
+		+r(568)
+			+rem(bottom, 25px)
+			+rem(right, 20px)
+		z-index: 2
+		.rotator-counter
+			.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
+				color: $white
+		.rotator-arrow
+		 	&.rotator-arrow__left
+		 		background-image: url(../img/icons/icon-12.png)
+		 	&.rotator-arrow__right
+		 		background-image: url(../img/icons/icon-11.png)
+.furn-content
+	+rem(margin-bottom, 50px)

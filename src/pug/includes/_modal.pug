@@ -101,7 +101,7 @@
 		.form
 			.field
 				.field-body
-					.color-rotator
+					.color-rotator.color-rotator__popup
 						mixin color(id, tip, hex, color)
 							.color-item
 								input(type="radio" name="color" id=id value=color)
@@ -217,7 +217,7 @@
 								+tabsNavs("tab3", "ручка")
 						.tab-in
 							.tab-cont(data-tab-cont="tab0")
-								.furn-rotator
+								.furn-rotator.furn-popup
 									mixin furn(id, image, brand, series, value)
 										.furn-rotator__item
 											input(id=id type="radio" name="furniture" value=value)
@@ -240,7 +240,7 @@
 										.rotator__counter-all 4
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab1")
-								.furn-rotator
+								.furn-rotator.furn-popup
 									mixin furn(id, image, brand, series, value)
 										.furn-rotator__item
 											input(id=id type="radio" name="furniture" value=value)
@@ -262,7 +262,7 @@
 										.rotator__counter-all 4
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab2")
-								.furn-rotator
+								.furn-rotator.furn-popup
 									mixin furn(id, image, brand, series, value)
 										.furn-rotator__item
 											input(id=id type="radio" name="furniture" value=value)
@@ -287,7 +287,7 @@
 										.rotator__counter-all 4
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab3")
-								.furn-rotator
+								.furn-rotator.furn-popup
 									mixin furn(id, image, brand, series, value)
 										.furn-rotator__item
 											input(id=id type="radio" name="furniture" value=value)
@@ -310,3 +310,53 @@
 		.form-submit
 			button(type="button" class="btn btn-red btn-select")
 				span Выбрать
+
+.modal__wrap.modal__wrap-order(data-modal-wrap="order")
+	.modal.modal-front
+		.btn-close
+		.modal__title Форма обратной связи
+		.form
+			form.js-validate
+				.columns
+					.columns__left
+						.field
+							.field-head
+								span имя*
+							.field-body
+								input(type="text" data-validation="length" data-validation-length="min2")
+						.field
+							.field-head
+								span E-mail*
+							.field-body
+								input(type="text" data-validation="email")
+					.columns__right
+						.field
+							.field-head
+								span фамилия
+							.field-body
+								input(type="text")
+						.field
+							.field-head
+								span телефон*
+							.field-body
+								input.numeric(type="text" data-validation="length" data-validation-length="6-20")
+				.field
+					.field-head
+						span Ваш заказ*
+					.field-body
+						textarea.no-event(readonly)
+							| Наружная дверь гранит L, р-р 2000х600 мм, филенчатая ламинированная с горизонтальными вставками из нержавеющей стали, цвет венге, комплект ручек “Заха Хадид”.
+				.field
+					.field-head
+						span Комментарий к заказу
+					.field-body
+						textarea
+				.field
+					button.btn.btn-red(type="submit")
+						span Отправить
+	.modal.modal-back
+		.btn-close
+		.modal__title Благодарим вас!
+		.modal__text 
+			p В течение рабочего дня с вами свяжется наш менеджер. Спасибо, что выбрали нас!
+		.close Закрыть

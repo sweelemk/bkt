@@ -439,7 +439,7 @@
         <div class="form">
           <div class="field">
             <div class="field-body">
-              <div class="color-rotator">
+              <div class="color-rotator color-rotator__popup">
                                 <div class="color-item">
                                   <input type="radio" name="color" id="t-1" value="Черный">
                                   <label for="t-1">
@@ -1151,7 +1151,7 @@
                 </div>
                 <div class="tab-in">
                   <div class="tab-cont" data-tab-cont="tab0">
-                    <div class="furn-rotator">
+                    <div class="furn-rotator furn-popup">
                                             <div class="furn-rotator__item">
                                               <input id="id-1" type="radio" name="furniture" value="Бренд: Кале, Серия: 1013JU">
                                               <label for="id-1">
@@ -1212,7 +1212,7 @@
                     </div>
                   </div>
                   <div class="tab-cont" data-tab-cont="tab1">
-                    <div class="furn-rotator">
+                    <div class="furn-rotator furn-popup">
                                             <div class="furn-rotator__item">
                                               <input id="id-5" type="radio" name="furniture" value="Бренд: Кале, Серия: 1013JU">
                                               <label for="id-5">
@@ -1261,7 +1261,7 @@
                     </div>
                   </div>
                   <div class="tab-cont" data-tab-cont="tab2">
-                    <div class="furn-rotator">
+                    <div class="furn-rotator furn-popup">
                                             <div class="furn-rotator__item">
                                               <input id="id-8" type="radio" name="furniture" value="Бренд: Кале, Серия: 1013JU">
                                               <label for="id-8">
@@ -1346,7 +1346,7 @@
                     </div>
                   </div>
                   <div class="tab-cont" data-tab-cont="tab3">
-                    <div class="furn-rotator">
+                    <div class="furn-rotator furn-popup">
                                             <div class="furn-rotator__item">
                                               <input id="id-14" type="radio" name="furniture" value="Бренд: Кале, Серия: 1013JU">
                                               <label for="id-14">
@@ -1390,6 +1390,69 @@
         <div class="form-submit">
           <button class="btn btn-red btn-select" type="button"><span>Выбрать</span></button>
         </div>
+      </div>
+    </div>
+    <div class="modal__wrap modal__wrap-order" data-modal-wrap="order">
+      <div class="modal modal-front">
+        <div class="btn-close"></div>
+        <div class="modal__title">Форма обратной связи</div>
+        <div class="form">
+          <form class="js-validate">
+            <div class="columns">
+              <div class="columns__left">
+                <div class="field">
+                  <div class="field-head"><span>имя*</span></div>
+                  <div class="field-body">
+                    <input type="text" data-validation="length" data-validation-length="min2">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="field-head"><span>E-mail*</span></div>
+                  <div class="field-body">
+                    <input type="text" data-validation="email">
+                  </div>
+                </div>
+              </div>
+              <div class="columns__right">
+                <div class="field">
+                  <div class="field-head"><span>фамилия</span></div>
+                  <div class="field-body">
+                    <input type="text">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="field-head"><span>телефон*</span></div>
+                  <div class="field-body">
+                    <input class="numeric" type="text" data-validation="length" data-validation-length="6-20">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>Ваш заказ*</span></div>
+              <div class="field-body">
+                <textarea class="no-event" readonly>Наружная дверь гранит L, р-р 2000х600 мм, филенчатая ламинированная с горизонтальными вставками из нержавеющей стали, цвет венге, комплект ручек “Заха Хадид”.</textarea>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-head"><span>Комментарий к заказу</span></div>
+              <div class="field-body">
+                <textarea></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <button class="btn btn-red" type="submit"><span>Отправить</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal-back">
+        <div class="btn-close"></div>
+        <div class="modal__title">Благодарим вас!</div>
+        <div class="modal__text"> 
+          <p>В течение рабочего дня с вами свяжется наш менеджер. Спасибо, что выбрали нас!</p>
+        </div>
+        <div class="close">Закрыть</div>
       </div>
     </div>
   </body>

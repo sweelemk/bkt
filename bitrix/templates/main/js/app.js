@@ -273,6 +273,10 @@ $(document).ready(function() {
 			]
 		});
 
+		carousel.on("breakpoint", function(event, slick, breakpoint){
+			countSlides($(this))
+		});
+
 		next.on("click", function(){
 			carousel.slick("slickNext");
 		});
@@ -285,69 +289,107 @@ $(document).ready(function() {
 
 	//colors slider
 	function sliderColors() {
-		var carousel = $(".color-rotator"),
-			next = carousel.parent().find(".rotator-arrow__right"),
-			prev = carousel.parent().find(".rotator-arrow__left"),
-			current = carousel.parent().find(".rotator__counter-current"),
-			all = carousel.parent().find(".rotator__counter-all");
+		var carousels = $(".color-rotator");
 
-		carousel.on("init", function(){
-			var l = $(this).find('.slick-slide').length;
-			all.text(l);
-			if(l === $(this).find(".slick-active").length){
-				// $(this).parent().find(".rotator-navi").hide();
-			} else {
-				prev.addClass("disabled")
-			}
-			countSlides($(this))
-		});
+		carousels.each(function(){
+			var carousel = $(this),
+				next = carousel.parent().find(".rotator-arrow__right"),
+				prev = carousel.parent().find(".rotator-arrow__left"),
+				current = carousel.parent().find(".rotator__counter-current"),
+				all = carousel.parent().find(".rotator__counter-all");
 
-		carousel.on("afterChange", function(){
-			var curr = $(this).slick("slickCurrentSlide") + 1,
-				l = ($(this).find('.slick-slide').length - $(this).find('.slick-active').length) + 1;
-			current.text(curr);
-
-			if(curr !== 1) {
-				prev.removeClass("disabled");
-			} else if(curr === 1) {
-				prev.addClass("disabled");
-			}
-
-			if(curr !== l) {
-				next.removeClass("disabled");
-			} else if(curr === l) {
-				next.addClass("disabled");
-			}
-
-		});
-
-		carousel.slick({
-			rows: 5,
-			slidesPerRow: 15,
-			arrows: false,
-			infinite: false,
-			responsive: [
-				{
-					breakpoint: 569,
-					settings: {
-						slidesPerRow: 11,
+			colorPopup = {
+				rows: 5,
+				slidesPerRow: 15,
+				arrows: false,
+				infinite: false,
+				responsive: [
+					{
+						breakpoint: 569,
+						settings: {
+							slidesPerRow: 11,
+						}
+					},
+					{
+						breakpoint: 481,
+						settings: {
+							slidesPerRow: 6,
+						}
 					}
-				},
-				{
-					breakpoint: 481,
-					settings: {
-						slidesPerRow: 6,
+				]
+			};
+
+			colorCont = {
+				rows: 3,
+				slidesPerRow: 9,
+				arrows: false,
+				infinite: false,
+				responsive: [
+					{
+						breakpoint: 640,
+						settings: {
+							slidesPerRow: 6
+						}
+					},
+					{
+						breakpoint: 481,
+						settings: {
+							rows: 6,
+							slidesPerRow: 4
+						}
 					}
+				]
+			};
+
+			carousel.on("init", function(){
+				var l = $(this).find('.slick-slide').length;
+				all.text(l);
+				if(l === $(this).find(".slick-active").length){
+					// $(this).parent().find(".rotator-navi").hide();
+				} else {
+					prev.addClass("disabled")
 				}
-			]
-		});
+				countSlides($(this))
+			});
 
-		next.on("click", function(){
-			carousel.slick("slickNext");
-		});
+			carousel.on("afterChange", function(){
+				var curr = $(this).slick("slickCurrentSlide") + 1,
+					l = ($(this).find('.slick-slide').length - $(this).find('.slick-active').length) + 1;
+				current.text(curr);
 
-		prev.on("click", function(){
-			carousel.slick("slickPrev");
+				if(curr !== 1) {
+					prev.removeClass("disabled");
+				} else if(curr === 1) {
+					prev.addClass("disabled");
+				}
+
+				if(curr !== l) {
+					next.removeClass("disabled");
+				} else if(curr === l) {
+					next.addClass("disabled");
+				}
+
+			});
+
+			if(carousel.parent().find(".color-rotator__popup").length){
+				carousel.slick(colorPopup);
+			}
+			
+			if(carousel.parent().find(".color-rotator__cont").length){
+				carousel.slick(colorCont);
+			}
+
+			carousel.on("breakpoint", function(event, slick, breakpoint){
+				countSlides($(this))
+			});
+
+			next.on("click", function(){
+				carousel.slick("slickNext");
+			});
+
+			prev.on("click", function(){
+				carousel.slick("slickPrev");
+			});
 		});
 
 	} sliderColors();
@@ -405,6 +447,10 @@ $(document).ready(function() {
 			]
 		});
 
+		carousel.on("breakpoint", function(event, slick, breakpoint){
+			countSlides($(this))
+		});
+
 		next.on("click", function(){
 			carousel.slick("slickNext");
 		});
@@ -425,6 +471,55 @@ $(document).ready(function() {
 				prev = carousel.parent().find(".rotator-arrow__left"),
 				current = carousel.parent().find(".rotator__counter-current"),
 				all = carousel.parent().find(".rotator__counter-all");
+
+			var popupRotator = {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				arrows: false,
+				infinite: false,
+				responsive: [
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1
+						}
+					}
+				]
+			};
+
+			var contRotator = {
+				slidesToShow: 4,
+				slidesToScroll: 1,
+				arrows: false,
+				infinite: false,
+				slide: ".furn-rotator__item",
+				responsive: [
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 569,
+						settings: {
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1
+						}
+					}
+				]
+			};
 
 			carousel.on("init", function(){
 				var l = $(this).find('.slick-slide').length;
@@ -456,25 +551,17 @@ $(document).ready(function() {
 
 			});
 
-			carousel.slick({
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				arrows: false,
-				infinite: false,
-				responsive: [
-					{
-						breakpoint: 768,
-						settings: {
-							slidesToShow: 2
-						}
-					},
-					{
-						breakpoint: 480,
-						settings: {
-							slidesToShow: 1
-						}
-					}
-				]
+			if(carousel.parent().find(".furn-popup").length){
+				carousel.slick(popupRotator);
+			};
+
+			if(carousel.parent().find(".furn-content").length){
+				carousel.slick(contRotator);
+			};
+			
+
+			carousel.on("breakpoint", function(event, slick, breakpoint){
+				countSlides($(this))
 			});
 
 			next.on("click", function(){
@@ -489,29 +576,22 @@ $(document).ready(function() {
 	} sliderFurniture();
 
 	function countSlides(slider) {
+		setTimeout(function(){
+			var el = $(slider),
+				 t = el.find('.slick-slide').length,
+				all = el.parent().find(".rotator__counter-all");
 
-		// $(window).trigger("resize");
+			var l = el.find(".slick-slide").length - el.find('.slick-active').length;
 
-		var el = $(slider),
-			all = el.parent().find(".rotator__counter-all");
+			all.text(l+1);
 
-		var l = el.find(".slick-slide").length - el.find('.slick-active').length;
-
-		all.text(l+1);
-
-		var t = el.find('.slick-slide').length;
-		if(t === el.find(".slick-active").length){
-			el.find(".rotator-navi").hide();
-		} else {
-			el.find(".rotator-navi").show();
-		}
-
-		$(window).on("resize", function(){
-			countSlides($(slider))
-		});
+			if(l < 1){
+				el.parent().find(".rotator-navi").hide();
+			} else {
+				el.parent().find(".rotator-navi").show();
+			}
+		},200);
 	};
-
-	
 
 	//matchHeight product properties
 	function matchProp() {
@@ -757,7 +837,7 @@ $(document).ready(function() {
 		if(popupSelector.find(".slick-slider").length){
 			setTimeout(function(){
 				$(".slick-slider").slick("setPosition");
-				$(window).trigger("resize");
+				// $(window).trigger("resize");
 			},100);
 		}
 
@@ -844,54 +924,59 @@ $(document).ready(function() {
 
 	//slider products inner
 	function productSlider() {
-		var carousel = $(".produts-slider_main"),
-			next = carousel.parent().find(".rotator-arrow__right"),
-			prev = carousel.parent().find(".rotator-arrow__left"),
-			current = carousel.parent().find(".rotator__counter-current"),
-			all = carousel.parent().find(".rotator__counter-all");
+		var carousels = $(".single-image");
+		carousels.each(function(){
 
-		carousel.on("init", function(){
-			var l = $(this).find('.slick-slide').length;
-			all.text(l);
-			if(l === $(this).find(".slick-active").length){
-				$(".products-navi").hide();
-			} else {
-				prev.addClass("disabled")
-			}
-		});
+		
+			var carousel = $(this),
+				next = carousel.parent().find(".rotator-arrow__right"),
+				prev = carousel.parent().find(".rotator-arrow__left"),
+				current = carousel.parent().find(".rotator__counter-current"),
+				all = carousel.parent().find(".rotator__counter-all");
 
-		carousel.on("afterChange", function(){
-			var curr = $(this).slick("slickCurrentSlide") + 1,
-				l = ($(this).find('.slick-slide').length - $(this).find('.slick-active').length) + 1;
-			current.text(curr);
+			carousel.on("init", function(){
+				var l = $(this).find('.slick-slide').length;
+				all.text(l);
+				if(l === $(this).find(".slick-active").length){
+					$(".products-navi").hide();
+				} else {
+					prev.addClass("disabled")
+				}
+			});
 
-			if(curr !== 1) {
-				prev.removeClass("disabled");
-			} else if(curr === 1) {
-				prev.addClass("disabled");
-			}
+			carousel.on("afterChange", function(){
+				var curr = $(this).slick("slickCurrentSlide") + 1,
+					l = ($(this).find('.slick-slide').length - $(this).find('.slick-active').length) + 1;
+				current.text(curr);
 
-			if(curr !== l) {
-				next.removeClass("disabled");
-			} else if(curr === l) {
-				next.addClass("disabled");
-			}
+				if(curr !== 1) {
+					prev.removeClass("disabled");
+				} else if(curr === 1) {
+					prev.addClass("disabled");
+				}
 
-		});
+				if(curr !== l) {
+					next.removeClass("disabled");
+				} else if(curr === l) {
+					next.addClass("disabled");
+				}
 
-		carousel.slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			arrows: false,
-			infinite: false
-		});
+			});
 
-		next.on("click", function(){
-			carousel.slick("slickNext");
-		});
+			carousel.slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				infinite: false
+			});
 
-		prev.on("click", function(){
-			carousel.slick("slickPrev");
+			next.on("click", function(){
+				carousel.slick("slickNext");
+			});
+
+			prev.on("click", function(){
+				carousel.slick("slickPrev");
+			});
 		});
 	} productSlider();
 
@@ -937,7 +1022,7 @@ $(document).ready(function() {
 					$this.find("[data-tab-cont='" + index + "']").addClass("visible");
 				},10);
 				$this.find("[data-tab-cont='" + index + "']").show().find(".slick-slider").slick("setPosition");
-				$(window).trigger("resize");
+				// $(window).trigger("resize");
 			});
 		});
 	} tab();
