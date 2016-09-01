@@ -1026,4 +1026,59 @@ $(document).ready(function() {
 			});
 		});
 	} tab();
+
+
+	// mobile menu
+	function mobi(){
+		var trigger = $(".hamburger-inner"),
+			cont = $(".mobile__navi"),
+			close = cont.find(".close");
+
+		trigger.on("click", function(){
+			cont.fadeIn(150);
+			$("html").css("overflow", "hidden");
+		});
+
+		close.on("click", function(){
+			cont.fadeOut(150);
+			$("html").removeAttr("style");
+		});
+
+	} mobi();
+
+	//search focus
+	function IFocus(){
+		var sCont = $(".form-trigger");
+		sCont.each(function(){
+			var trigger = $(this).find(".btn-search"),
+				i = $(this).find("input");
+
+			trigger.on("click", function(){
+				setTimeout(function(){
+					i.focus();
+				}, 10);
+			});
+
+			i.on("input", function(){
+				var $this = $(this),
+					iVal = $this.val().length;
+				if(iVal !== 0) {
+					trigger.attr("type", "submit");
+				} else {
+					trigger.attr("type", "button");
+				}
+			});
+
+		});
+
+	} IFocus();
+
+	function chars() {
+		$('.numeric').on('keypress', function(key){
+			if((key.charCode < 40 || key.charCode > 41) && (key.charCode < 48 || key.charCode > 57) && (key.charCode != 45) && (key.charCode != 32) && (key.charCode != 43) && (key.charCode != 0))
+				return false;
+		});
+
+	} chars();
+
 });

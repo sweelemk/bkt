@@ -575,12 +575,62 @@ body
 					+rem(width, 100px)
 					+rem(height, 100px)
 					border-radius: 100%
-					background-color: $lGrey
 					cursor: pointer
 					transition: transform 0.3s linear 0.1s
+					&::after
+						content: ''
+						+rem(width, 100px)
+						+rem(height, 100px)
+						background-size: cover
+						position: absolute
+						top: 0
+						left: 0
+						border-radius: 100%
+						opacity: 1
+						transition: opacity 0.3s ease
+					&::before
+						content: ''
+						+rem(width, 100px)
+						+rem(height, 100px)
+						background-size: cover
+						position: absolute
+						top: 0
+						left: 0
+						border-radius: 100%
+						opacity: 0
+						transition: opacity 0.3s ease
+					&.soundless
+						&::after
+							background-image: url(../img/icons/soundless.png)
+						&::before
+							background-image: url(../img/icons/soundless.png)
+					&.time
+						&::after
+							background-image: url(../img/icons/time.png)
+						&::before
+							background-image: url(../img/icons/time.png)
+					&.eco
+						&::after
+							background-image: url(../img/icons/eco.png)
+						&::before
+							background-image: url(../img/icons/eco.png)
+					&.fire
+						&::after
+							background-image: url(../img/icons/fire.png)
+						&::before
+							background-image: url(../img/icons/fire.png)
+					&.water
+						&::after
+							background-image: url(../img/icons/water.png)
+						&::before
+							background-image: url(../img/icons/water.png)
 				&.active
 					span
 						transform: translate(-50%, -150%)
+						&::after
+							opacity: 0
+						&::before
+							opacity: 1
 	.intro__scroll
 		position: absolute
 		+rem(bottom, 30px)
@@ -619,6 +669,11 @@ body
 		+rem(letter-spacing, 0.9px)
 		+rem(height, 38px)
 		+rem(border-radius, 19px)
+		transition: color, 0.3s ease
+	&:hover
+		background-color: $bordeaux
+		span 
+			color: $white
 	&.btn-red
 		background-color: $bordeaux
 		span
@@ -700,7 +755,7 @@ body
 			line-height: 1.5
 .cooperation
 	font-size: 0
-	+rem(margin-bottom, 90px)
+	+rem(margin-bottom, 65px)
 	.cooperation__item
 		display: inline-block
 		vertical-align: top
@@ -2422,3 +2477,184 @@ p
 		 		background-image: url(../img/icons/icon-11.png)
 .furn-content
 	+rem(margin-bottom, 50px)
+
+.hamburger
+	+rem(width, 30px)
+	+rem(height, 20px)
+	position: absolute
+	+rem(right, 25px)
+	top: 50%
+	+rem(margin-top, -10px)
+	display: none
+	+r(992)
+		display: block
+	.hamburger-inner 
+		width: 100%
+		height: 100%
+		cursor: pointer
+		position: relative
+		text-align: center
+		div 
+			display: block
+			position: relative
+			+rem(width, 30px)
+			+rem(height, 22px)
+		span 
+			height: 2px
+			width: 100%
+			display: block
+			background-color: $black
+			position: absolute
+			opacity: 1
+			left: 0
+			transform: rotate(0deg)
+			transition: 0.2s ease-in-out
+			&:nth-child(1) 
+				top: 0
+			&:nth-child(2)
+				+rem(top, 9px)
+			&:nth-child(3)
+				+rem(top, 18px)
+		&.open
+			span 
+				&:nth-child(1) 
+					transform: rotate(135deg)
+					+rem(top, 9px)
+				&:nth-child(2)
+					opacity: 0
+					left: -60px
+					+rem(left, -60px)
+				&:nth-child(3)
+					transform: rotate(-135deg)
+					+rem(top, 9px)
+.mobile__navi
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: $bordeaux
+	z-index: 55
+	overflow: auto
+	display: none
+	.mobile__navi-container
+		+rem(max-width, 640px)
+		margin: 0 auto
+		width: 100%
+		.menu__navi-header
+			position: fixed
+			top: 0
+			left: 0
+			right: 0
+			+rem(height, 100px)
+			+r(414)
+				+rem(height, 70px)
+			background-color: $bordeaux
+			.close
+				+rem(width, 65px)
+				+rem(height, 100px)
+				+r(414)
+					+rem(height, 70px)
+				float: right
+				position: relative
+				span
+					+rem(width, 30px)
+					+rem(height, 30px)
+					+r(414)
+						+rem(height, 20px)
+						+rem(width, 20px)
+						+rem(margin, -10px 0 0 -10px)
+					position: absolute
+					top: 50%
+					left: 50%
+					+rem(margin, -15px 0 0 -15px)
+					background-image: url(../img/icons/close.png)
+					background-size: cover
+			.form-container
+				overflow: hidden
+				+rem(padding, 0 15px)
+				height: 100%
+				.field
+					+rem(height, 100px)
+					+r(414)
+						+rem(height, 70px)
+					margin-bottom: 0
+					&:first-of-type
+						float: left
+					&:last-of-type
+						overflow: hidden
+						+rem(padding-top, 29px)
+						+r(414)
+							+rem(padding-top, 20px)
+				.btn-search
+					+rem(width, 40px)
+					+rem(height, 40px)
+					+r(414)
+						+rem(width, 20px)
+						+rem(height, 20px)
+						+rem(top, 24px)
+					background-image: url(../img/icons/icon-14.png)
+					background-size: cover
+					background-color: transparent
+					background-repeat: no-repeat
+					+rem(margin-right, 15px)
+					position: relative
+					+rem(top, 27px)
+				input
+					+rem(height, 40px)
+					background-color: transparent
+					border-bottom: 1px solid transparent
+					width: 100%
+					font-family: "Book"
+					+rem(font-size, 26px)
+					color: $white
+					text-transform: uppercase
+					transition: border-color 0.3s ease
+					+rem(letter-spacing, .9px)
+					&::-webkit-input-placeholder
+						color: #daa9a2 
+					&::-moz-placeholder
+						color: #daa9a2
+					&:-ms-input-placeholder,
+						color: #daa9a2
+					&:-moz-placeholder
+						color: #daa9a2
+					&:focus
+						border-color: $white
+					+r(414)
+						+rem(font-size, 15px)
+						+rem(height, 30px)
+		.menu__content
+			+rem(padding, 120px 15px 40px)
+			+r(414)
+				+rem(padding, 80px 15px 40px)
+			ul
+				& > li
+					& > a
+						font-family: "Book"
+						+rem(font-size, 26px)
+						text-transform: uppercase
+						color: $white
+						+rem(padding, 10px 0)
+						display: inline-block
+						width: 100%
+						+r(414)
+							+rem(font-size, 16px)
+				ul	
+					+rem(padding, 10px 0 20px)
+					& > li
+						+rem(padding-right, 20px)
+						a
+							text-transform: none
+							font-family: "Book"
+							+rem(font-size, 28px)
+							+rem(letter-spacing, 0.5px)
+							+r(414)
+								+rem(font-size, 20px)
+							+r(375)
+								+rem(font-size, 18px)
+							i
+								+arr(5,8, $white, r)
+								display: inline-block
+								vertical-align: middle
+								+rem(margin-left, 5px)
