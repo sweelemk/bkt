@@ -649,10 +649,10 @@ $(document).ready(function() {
 
 		function checkStickyNavigation(currentTop) {
 			var secondaryNavOffsetTop = belowNavHeroContent.offset().top - secondaryNavigation.height() - mainHeader.innerHeight();
-			
+
 			if (previousTop >= currentTop ) {
 		    	//if scrolling up... 
-		    	if( currentTop < secondaryNavOffsetTop ) {
+		    	if( currentTop < secondaryNavOffsetTop) {
 		    		//secondary nav is not fixed
 		    		mainHeader.removeClass('is-hidden');
 		    		secondaryNavigation.removeClass('fixed slide-up');
@@ -666,7 +666,8 @@ $(document).ready(function() {
 		    	
 		    } else {
 		    	//if scrolling down...	
-		 	  	if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
+		 	  	if( currentTop > secondaryNavOffsetTop + scrollOffset) {
+		 	  		
 		    		mainHeader.addClass('is-hidden');
 		    		secondaryNavigation.addClass('fixed slide-up');
 		    		belowNavHeroContent.addClass('secondary-nav-fixed');
@@ -686,14 +687,19 @@ $(document).ready(function() {
 		var scrolling = false;
 		var contentSection = $(".sc-section"),
 			navigation = $(".secondary-nav"),
-			navA = navigation.find("ul a"),
+			navA = navigation.find("ul"),
 			navigationItems = navigation.find("a");
 
 		$(window).on("scroll", checkScroll);
 
 		navA.on("click", "a", function(event){
+
+			var target = $(this).data("scroller"),
+				rTarget = navA.find(".active").data("scroller") || navA.find("li").last().find("a").data("scroller");
+
+			smoothScroll(target, rTarget);
+			// smoothScroll($(this.hash))
 			event.preventDefault();
-			smoothScroll($(this.hash))
 		});
 
 		function checkScroll() {
@@ -704,13 +710,15 @@ $(document).ready(function() {
 		}
 
 		function updateSections() {
-			var halfWindowHeight = $(window).height() - 2,
+			var halfWindowHeight = $(window).height() / 2,
 				scrollTop = $(window).scrollTop();
 
 			contentSection.each(function(){
 				var section = $(this),
 					sectionId = section.attr("id"),
-					navigationItem = navigationItems.filter('[href^="#'+ sectionId +'"]');
+					navigationItem = navigationItems.filter('[data-scroller^="#'+ sectionId +'"]');
+
+				console.log(navigationItem);
 
 				((section.offset().top - halfWindowHeight < scrollTop) && (section.offset().top + section.height() - halfWindowHeight > scrollTop))
 					? navigationItem.addClass("active")
@@ -719,10 +727,28 @@ $(document).ready(function() {
 			scrolling = false;
 		}
 
-		function smoothScroll(target) {
-			$("body, html").animate({
-				"scrollTop": target.offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
-			}, 450);
+		function smoothScroll(target,rTarget) {
+			var tTop = $(target).offset().top - $(window).scrollTop(),
+				rtTop = $(rTarget).offset().top - $(window).scrollTop();
+
+
+			setTimeout(function(){
+				if(rtTop < tTop) {
+					console.log(true)
+					$("body, html").animate({
+						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() 
+					}, 450);
+				} else {
+					console.log(false)
+					$("body, html").animate({
+						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
+					}, 450);
+				}
+			},100)
+
+			// $("body, html").animate({
+			// 	"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
+			// }, 450);
 		}
 
 	} scrollSection();

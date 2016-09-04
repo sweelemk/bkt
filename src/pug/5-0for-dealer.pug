@@ -20,7 +20,7 @@ block content
 				-var current = "Условия"
 				mixin scroll(scrollId, title)
 					li
-						a(href=scrollId data-scroller class={active: title === current}) #{title}
+						a(data-scroller=scrollId class={active: title === current}) #{title}
 				+scroll("#scroll-1", "Условия")
 				+scroll("#scroll-2", "как с нами связаться")
 		section.container

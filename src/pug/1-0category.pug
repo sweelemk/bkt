@@ -20,7 +20,7 @@ block content
 				-var current = "Входные двери внутренние"
 				mixin scroll(scrollId, title)
 					li
-						a(href=scrollId data-scroller class={active: title === current}) #{title}
+						a(data-scroller=scrollId class={active: title === current}) #{title}
 				+scroll("#scroll-1", "Входные двери внутренние")
 				+scroll("#scroll-2", "Входные группы и наружные двери")
 		section.container
