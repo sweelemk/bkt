@@ -138,6 +138,12 @@ $(document).ready(function() {
 			$overlay.removeClass("visible").removeAttr("style");
 		});
 
+		$win.on("scroll", function(){
+			$gridItem.removeClass("hover");
+			$hoverItem.removeClass("active");
+			$overlay.removeClass("visible").removeAttr("style");
+		});
+
 		$win.on("load resize", function () {
 
 			if ($win.width() >= 1025) {
@@ -698,7 +704,7 @@ $(document).ready(function() {
 		}
 
 		function updateSections() {
-			var halfWindowHeight = $(window).height() / 2,
+			var halfWindowHeight = $(window).height() - 2,
 				scrollTop = $(window).scrollTop();
 
 			contentSection.each(function(){
@@ -924,6 +930,10 @@ $(document).ready(function() {
 				infinite: false
 			});
 
+			carousel.find("img").on("click", function(){
+				carousel.slick("slickNext");
+			})
+
 			next.on("click", function(){
 				carousel.slick("slickNext");
 			});
@@ -1034,5 +1044,46 @@ $(document).ready(function() {
 		});
 
 	} chars();
+
+	function bgColotInput() {
+		var p = $(".modal__wrap"),
+			i = p.find("input"),
+			t = p.find("textarea");
+
+		i.each(function(){
+			var v = $(this).val().length;
+
+			if(v !== 0) {
+				$(this).css("background-color", "#ffffff")
+			}
+
+			$(this).on("input", function(){
+				if($(this).val().length !== 0) {
+					$(this).css("background-color", "#ffffff")
+				}
+			});
+		});
+		t.each(function(){
+			var v = $(this).val().length;
+
+			if(v !== 0) {
+				$(this).css("background-color", "#ffffff")
+			}
+
+			$(this).on("change", function(){
+				if($(this).val().length !== 0) {
+					$(this).css("background-color", "#ffffff")
+				}
+			});
+		});
+	} bgColotInput();
+
+	//fancybox
+	function f_box(){
+		$(".resize").fancybox({
+			padding: 0,
+			margin: [60, 20, 60, 20]
+		})
+	} f_box();
 
 });

@@ -6,9 +6,16 @@
 @import lib/variables
 @import lib/slick
 @import lib/tooltipster
+@import lib/fancybox
 // 
 @import main
 
+*, :after, :before
+	box-sizing: border-box
+:focus
+	outline: none
+input::-ms-clear 
+	display: none
 
 html
 	height: 100%
@@ -443,7 +450,7 @@ body
 				width: 100%
 				transform: translate(0, -50%);
 				backface-visibility: hidden
-				+r(1024) 
+				+r(1000) 
 					top: 40%
 				.intro__content-lead
 					max-width: 1000px
@@ -478,7 +485,7 @@ body
 				left: 0
 				transition: background-color 0.3s linear, opacity 0.3s linear, visibility 0.3s linear
 		.intro__hover
-			+r(992)
+			+r(1000)
 				display: none
 			.intro-hover-item
 				position: absolute
@@ -545,6 +552,7 @@ body
 					.intro-hover-item__content
 						transform: translate(0, -40%)
 						transition: transform 0.3s linear 0.1s
+						will-change: transform
 						.text 
 							opacity: 1
 							transition: opacity 0.3s linear 0.1s
@@ -554,7 +562,7 @@ body
 		left: 0
 		right: 0
 		z-index: 3
-		+r(1024) 
+		+r(1000) 
 			display: none
 		.intro__content-grid-action
 			font-size: 0
@@ -800,7 +808,8 @@ body
 .products-popular
 	.products-popular__gallery
 		position: relative
-
+.products
+	+rem(padding-bottom, 60px)
 .rotator-navi
 	text-align: center
 	.rotator-arrow
@@ -810,6 +819,7 @@ body
 		+rem(height, 28px)
 		background-size: cover
 		cursor: pointer
+		background-repeat: no-repeat
 		&.rotator-arrow__left
 			background-image: url(../img/icons/icon-8.png)
 		&.rotator-arrow__right
@@ -892,7 +902,7 @@ body
 
 .products-properties
 	font-size: 0
-	+rem(margin, 0 -5px 50px)
+	+rem(margin, 0 -5px 90px)
 	+rem(padding-top, 40px)
 	+r(992)
 		text-align: center
@@ -1162,6 +1172,9 @@ body
 		a
 			color: $Grey
 			+rem(font-size, 17px)
+			transition: color 0.3s ease
+			&:hover
+				color: $white
 hr
 	padding: 0
 	margin: 0
@@ -1489,7 +1502,10 @@ p
 			position: absolute
 			left: 50%
 			top: 20%
-			+rem(margin-left, -282px)
+			+r(580)
+				+rem(max-width, 460px)
+			+r(480)
+				+rem(max-width, 290px)
 			.modal__title
 				+rem(margin-bottom, 20px)
 			.close
@@ -1501,7 +1517,7 @@ p
 			&.open
 				opacity: 1
 				visibility: visible
-				transform: none
+				transform: translateY(20%) scale(1) translateX(-50%)
 	.modal__title
 		font-family: "Heavy"
 		+rem(font-size, 38px)
@@ -1512,11 +1528,6 @@ p
 	.modal__text
 		+rem(max-width, 425px)
 		margin: 0 auto 40px
-	.form
-		+rem(max-width, 314px)
-		width: 100%
-		margin: 0 auto
-		text-align: left
 	.btn-close
 		+rem(width, 25px)
 		+rem(height, 25px)
@@ -1526,6 +1537,11 @@ p
 		+rem(top, 16px)
 		+rem(right, 16px)
 		cursor: pointer
+	.form
+		+rem(max-width, 314px)
+		width: 100%
+		margin: 0 auto
+		text-align: left
 .field
 	+rem(margin-bottom, 15px)
 	.field-head
@@ -1551,7 +1567,7 @@ p
 				border-color: $bordeaux
 				color: $bordeaux
 				background-color: #fdf2f1
-			&.success
+			&.valid
 				background-color: $white
 			&:focus
 				background-color: $white
@@ -1568,8 +1584,10 @@ p
 			opacity: 0
 			visibility: hidden
 	.btn
-		margin: 0 auto
+		margin: 40px auto
 		display: block
+		span
+			+rem(padding, 0 65px)
 
 .search
 	display: inline-block
@@ -1711,7 +1729,7 @@ p
 		padding-right: 0
 .produts-sliders
 	+rem(margin-bottom, 50px)
-	+rem(max-height, 663px)
+	+rem(max-height, 664px)
 	+r(992)
 		max-height: auto
 	position: relative
@@ -1728,6 +1746,9 @@ p
 				background-size: cover
 				position: absolute
 				z-index: 2
+				cursor: pointer
+				+r(992)
+					display: none
 			.products-slider__item
 				+rem(max-height, 663px)
 				+r(992)
@@ -1738,7 +1759,7 @@ p
 					img
 						max-width: none
 						display: block
-						+rem(max-height, 663px)
+						+rem(max-height, 664px)
 						+r(992)
 							max-width: 100%
 							max-height: auto
@@ -1828,7 +1849,7 @@ p
 	+rem(padding, 40px 40px 0)
 	box-shadow: 0 16px 40px rgba(0,0,0,.25)
 	font-size: 0
-	+rem(min-height, 663px)
+	+rem(min-height, 664px)
 	+r(992)
 		position: relative
 		right: auto
@@ -1861,8 +1882,10 @@ p
 	.field
 		+rem(margin-bottom, 17px)
 		text-align: left
-		&.btn
+		&.btns
 			text-align: center
+			.btn
+				margin: 0 auto
 		.field-body
 			.field-item
 				display: block
@@ -1872,6 +1895,9 @@ p
 				+rem(padding, 0 34px 0 17px)
 				position: relative
 				overflow: hidden
+				transition: border-color 0.3s ease
+				&:hover
+					border-color: $bordeaux
 				span
 					+rem(font-size, 17px)
 					color: $dGrey
@@ -1974,7 +2000,7 @@ p
 		padding-right: 15%
 .colors
 	font-size: 0
-	+rem(margin, 0 -20px)
+	+rem(margin, 0 -20px 40px)
 	+r(480)
 		text-align: center
 	figure
@@ -1998,10 +2024,10 @@ p
 			+rem(letter-spacing, 0.5px)
 
 .modal__wrap
-	.form
-		+rem(max-width, 480px)
 	&.modal__wrap-size
 		font-size: 0
+		.form
+			+rem(max-width, 480px)
 		.field
 			width: 50%
 			display: inline-block
@@ -2068,6 +2094,8 @@ p
 	.form-submit
 		+rem(margin-top, 20px)
 	&.modal__wrap-lining
+		.form
+			+rem(max-width, 480px)
 		.field
 			width: 33.33%
 			display: inline-block
@@ -2182,7 +2210,8 @@ p
 	.tab-container
 		.tab-nav
 			width: 100%
-			overflow: auto
+			overflow-x: auto
+			overflow-y: hidden
 			text-align: center
 			+rem(margin-bottom, 33px)
 			background-color: transparent
@@ -2206,7 +2235,8 @@ p
 	+rem(margin-bottom, 50px)
 	.tab-nav
 		width: 100%
-		overflow: auto
+		overflow-x: auto
+		overflow-y: hidden
 		text-align: left
 		+rem(margin-bottom, 33px)
 		background-color: #f3f3f3
@@ -2658,3 +2688,33 @@ p
 								display: inline-block
 								vertical-align: middle
 								+rem(margin-left, 5px)
+.ff 
+	.header .nav .nav-trigger
+		+rem(padding, 27px 0)
+	.header .header-search .form .field button
+		top: -1px
+.fancybox-nav 
+	span
+		visibility: visible
+	&.fancybox-next
+		span
+			background-image: url(../img/icons/icon-11.png)
+			background-position: center
+			+rem(height, 58px)
+			+rem(width, 31px)
+			background-size: cover
+	&.fancybox-prev
+		span
+			background-image: url(../img/icons/icon-12.png)
+			background-position: center
+			+rem(height, 58px)
+			+rem(width, 31px)
+			background-size: cover
+.fancybox-close
+	background-image: url(../img/icons/close.png)
+	background-size: cover
+	background-position: center
+	+rem(width, 20px)
+	+rem(height, 20px)
+	+rem(top, -28px)
+	+rem(right, -28px)
