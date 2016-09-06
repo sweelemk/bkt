@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+	//sticky
+	function sticky() {
+		var side = $(".sidebar-form");
+		$(window).on("load resize", function(){
+			if($(this).width() < 993) {
+				side.trigger("sticky_kit:detach");;
+			} else {
+				side.stick_in_parent({
+					parent: ".row-products",
+					offset_top : 195
+				});
+			}
+		});
+	} sticky();
+
 	// catalog
 	function catalogToggle() {
 		var nav = $(".nav"),
@@ -604,7 +619,7 @@ $(document).ready(function() {
 			previousTop = 0,
 			currentTop = 0,
 			scrollDelta = 10,
-			scrollOffset = 150;
+			scrollOffset = 50;
 
 		// mainHeader.on('click', '.nav-trigger', function(event){
 		// 	// open primary navigation on mobile
@@ -717,8 +732,6 @@ $(document).ready(function() {
 				var section = $(this),
 					sectionId = section.attr("id"),
 					navigationItem = navigationItems.filter('[data-scroller^="#'+ sectionId +'"]');
-
-				console.log(navigationItem);
 
 				((section.offset().top - halfWindowHeight < scrollTop) && (section.offset().top + section.height() - halfWindowHeight > scrollTop))
 					? navigationItem.addClass("active")

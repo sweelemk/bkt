@@ -5,4 +5,5 @@
 //=include lib/jquery.tooltipster.min.js
 //=include lib/jquery.form-validator.min.js
 //=include lib/fancybox.js
+//=include lib/sticky-kit.min.js
 //=include common.js

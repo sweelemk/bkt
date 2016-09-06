@@ -584,60 +584,18 @@ body
 					+rem(height, 100px)
 					border-radius: 100%
 					cursor: pointer
-					transition: transform 0.3s linear 0.1s
-					&::after
-						content: ''
-						+rem(width, 100px)
-						+rem(height, 100px)
-						background-size: cover
-						position: absolute
-						top: 0
-						left: 0
-						border-radius: 100%
+					transition: transform 0.3s linear 0.1s , opacity 0.3s linear 0.1s
+					background-size: cover
+					&.in
 						opacity: 1
-						transition: opacity 0.3s ease
-					&::before
-						content: ''
-						+rem(width, 100px)
-						+rem(height, 100px)
-						background-size: cover
-						position: absolute
-						top: 0
-						left: 0
-						border-radius: 100%
+					&.out
 						opacity: 0
-						transition: opacity 0.3s ease
-					&.soundless
-						&::after
-							background-image: url(../img/icons/soundless.png)
-						&::before
-							background-image: url(../img/icons/soundless.png)
-					&.time
-						&::after
-							background-image: url(../img/icons/time.png)
-						&::before
-							background-image: url(../img/icons/time.png)
-					&.eco
-						&::after
-							background-image: url(../img/icons/eco.png)
-						&::before
-							background-image: url(../img/icons/eco.png)
-					&.fire
-						&::after
-							background-image: url(../img/icons/fire.png)
-						&::before
-							background-image: url(../img/icons/fire.png)
-					&.water
-						&::after
-							background-image: url(../img/icons/water.png)
-						&::before
-							background-image: url(../img/icons/water.png)
 				&.active
 					span
 						transform: translate(-50%, -150%)
-						&::after
+						&.in
 							opacity: 0
-						&::before
+						&.out
 							opacity: 1
 	.intro__scroll
 		position: absolute
@@ -1283,11 +1241,12 @@ hr
 		+rem(font-size, 38px)
 		color: $dGrey
 		+rem(margin-bottom, 10px)
-p
-	+rem(font-size, 17px)
-	color: $categoryDescr
-	&:not(:last-of-type)
-		+rem(margin-bottom, 10px)
+.container
+	p
+		+rem(font-size, 17px)
+		color: $categoryDescr
+		&:not(:last-of-type)
+			+rem(margin-bottom, 10px)
 .mission
 	+rem(padding, 40px 0 90px)
 	+rem(margin-bottom, 90px)
@@ -1722,7 +1681,12 @@ p
 		.contact-us__columns-left
 			+r(480)
 				+rem(margin-bottom, 30px)
-
+.st-container
+	+rem(margin-right, -361px)
+	+r(992)
+		margin-right: 0
+		display: flex
+		flex-wrap: wrap-reverse
 .row-products
 	position: relative
 	+rem(padding-right, 361px)
@@ -1731,8 +1695,11 @@ p
 .produts-sliders
 	+rem(margin-bottom, 50px)
 	+rem(max-height, 664px)
+	overflow: hidden
 	+r(992)
-		max-height: auto
+		max-height: none
+		width: 100%
+		overflow: visible
 	position: relative
 	.products-slider_container
 		position: relative
@@ -1753,7 +1720,7 @@ p
 			.products-slider__item
 				+rem(max-height, 663px)
 				+r(992)
-					max-height: auto
+					max-height: none
 				.image__cover
 					position: relative
 					z-index: 1
@@ -1763,7 +1730,7 @@ p
 						+rem(max-height, 664px)
 						+r(992)
 							max-width: 100%
-							max-height: auto
+							max-height: none
 		.rotator-navi
 			position: absolute
 			+rem(bottom, 30px)
@@ -1840,9 +1807,10 @@ p
 				&::before
 					display: none
 .sidebar-form
-	position: absolute
-	+rem(top, 50px)
-	right: 0
+	// position: relative
+	float: right
+	// +rem(top, 50px)
+	// right: 0
 	+rem(width, 361px)
 	border-top: 4px solid $bordeaux
 	background-color: $white
@@ -1851,6 +1819,8 @@ p
 	box-shadow: 0 16px 40px rgba(0,0,0,.25)
 	font-size: 0
 	+rem(min-height, 664px)
+	&.is_stuck 
+		margin-bottom: 20px
 	+r(992)
 		position: relative
 		right: auto
