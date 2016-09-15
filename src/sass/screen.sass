@@ -134,7 +134,7 @@ body
 					+rem(top, 15px)
 					background-color: $bordeaux
 					+rem(width, 296px)
-					bottom: 0
+					// bottom: 0
 					+rem(padding, 25px 0)
 					box-shadow: 0px 32px 40px 0px rgba(0, 0, 0, 0.25)
 					overflow: hidden
@@ -530,6 +530,7 @@ body
 					width: 100%
 					text-align: center
 					transition: transform 0.3s linear 0.1s
+					bottom: 0
 					.icon
 						+rem(width, 100px)
 						+rem(height, 100px)
@@ -552,6 +553,8 @@ body
 					.intro-hover-item__content
 						transform: translate(0, -40%)
 						transition: transform 0.3s linear 0.1s
+						+r(1280)
+							transform: translate(0, -40%)
 						will-change: transform
 						.text 
 							opacity: 1
@@ -586,6 +589,7 @@ body
 					cursor: pointer
 					transition: transform 0.3s linear 0.1s , opacity 0.3s linear 0.1s
 					background-size: cover
+					will-change: transform
 					&.in
 						opacity: 1
 					&.out
@@ -1114,7 +1118,7 @@ body
 			font-family: "Heavy"
 			+rem(font-size, 48px)
 			color: $white
-			+rem(margin-bottom, 10px)
+			+rem(margin-bottom, 20px)
 			+r(480)
 				+rem(font-size, 28px)
 .breadcrumbs
@@ -1128,6 +1132,7 @@ body
 				color: $Grey
 				position: absolute
 				+rem(right, -20px)
+				top: 0
 		a
 			color: $Grey
 			+rem(font-size, 17px)
@@ -1488,6 +1493,8 @@ hr
 	.modal__text
 		+rem(max-width, 425px)
 		margin: 0 auto 40px
+		p 
+			+rem(font-size, 16px)
 	.btn-close
 		+rem(width, 25px)
 		+rem(height, 25px)
@@ -1526,7 +1533,7 @@ hr
 			&.error
 				border-color: $bordeaux
 				color: $bordeaux
-				background-color: #fdf2f1
+				background-color: #fdf2f1!important
 			&.valid
 				background-color: $white
 			&:focus
@@ -1553,7 +1560,7 @@ hr
 	display: inline-block
 	+rem(max-width, 1060px)
 	width: 100%
-	+rem(margin-top, 40px)
+	+rem(margin-top, 50px)
 	+r(768)
 		+rem(max-width, 480px)
 	.form
@@ -1670,6 +1677,7 @@ hr
 			color: $black
 	.contact-us__columns
 		font-size: 0
+		+rem(margin-bottom, 30px)
 		.contact-us__columns-left,
 		.contact-us__columns-right
 			display: inline-block
@@ -1769,9 +1777,15 @@ hr
 			.products-slider__item
 				& > .image__cover
 						+rem(height, 166px)
+						overflow: hidden
+						position: relative
 						img
 							display: block
 							max-width: 100%
+							top: 50%
+							left: 50%
+							position: absolute
+							transform: translate(-50%,-50%)
 				.descr
 					background-color: $bordeaux
 					+rem(padding, 15px 28px 10px)
@@ -1901,15 +1915,15 @@ hr
 			width: 50%
 			display: inline-block
 			vertical-align: top
-			&:nth-child(odd)
-				padding-right: 10px
 			&:nth-child(even)
+				padding-right: 10px
+			&:nth-child(odd)
 				padding-left: 10px
 		+r(568)
 			width: 100%
-			&:nth-child(odd)
-				padding-right: 0px
 			&:nth-child(even)
+				padding-right: 0px
+			&:nth-child(odd)
 				padding-left: 0px
 .wrapper-products
 	+r(992)
@@ -2571,6 +2585,7 @@ hr
 					+rem(margin, -15px 0 0 -15px)
 					background-image: url(../img/icons/close.png)
 					background-size: cover
+					background-repeat: no-repeat
 			.form-container
 				overflow: hidden
 				+rem(padding, 0 15px)
@@ -2636,7 +2651,7 @@ hr
 						+rem(font-size, 26px)
 						text-transform: uppercase
 						color: $white
-						+rem(padding, 10px 0)
+						+rem(padding, 10px 0 10px 16px)
 						display: inline-block
 						width: 100%
 						+r(414)

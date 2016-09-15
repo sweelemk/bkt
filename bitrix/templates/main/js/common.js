@@ -129,6 +129,8 @@ $(document).ready(function() {
 			var index = getIndex($(this));
 			var indexColor = getColor($(this));
 
+			if($(this).hasClass("active")) return false;
+
 			// $overlay.addClass("visible").animate({
 			// 	backgroundColor: indexColor
 			// }, 150)//attr("style", "background-color:" + indexColor);
@@ -749,12 +751,12 @@ $(document).ready(function() {
 				if(rtTop < tTop) {
 					console.log(true)
 					$("body, html").animate({
-						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() 
+						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - 30
 					}, 450);
 				} else {
 					console.log(false)
 					$("body, html").animate({
-						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
+						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight() - 30
 					}, 450);
 				}
 			},100)
