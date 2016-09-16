@@ -888,11 +888,13 @@ $(document).ready(function() {
 	function selectedValue(modal, btn) {
 		var itemDOM = $("[data-modal='" + modal + "']").find("span"),
 			s = $("[data-modal-wrap='" + modal + "']"),
+			inValHidden = $("[data-modal='" + modal + "']").find("input"),
 			inVal = s.find("input:checked").val();
 		if(inVal === "") {
 			return false
 		} else {
-			itemDOM.html(inVal)
+			itemDOM.html(inVal);
+			inValHidden.val(inVal);
 		}
 	};
 
