@@ -530,7 +530,6 @@ body
 					width: 100%
 					text-align: center
 					transition: transform 0.3s linear 0.1s
-					bottom: 0
 					.icon
 						+rem(width, 100px)
 						+rem(height, 100px)
@@ -551,10 +550,10 @@ body
 						+rem(margin-bottom, 25px)
 				&.hover
 					.intro-hover-item__content
-						transform: translate(0, -40%)
+						transform: translate(0, -50px)
 						transition: transform 0.3s linear 0.1s
 						+r(1280)
-							transform: translate(0, -40%)
+							transform: translate(0, -50px)
 						will-change: transform
 						.text 
 							opacity: 1

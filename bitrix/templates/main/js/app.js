@@ -257,6 +257,8 @@ $(document).ready(function() {
 		$gridItem.on("mouseleave", function(event){
 			event.preventDefault();
 
+			console.log(true)
+
 			var $this = $(this);
 
 			$hoverItem.removeClass("active");
@@ -272,7 +274,7 @@ $(document).ready(function() {
 
 		$win.on("load resize", function () {
 
-			if ($win.width() >= 1025) {
+			if ($win.width() >= 992) {
 				setPositionLetter();
 				setColorCover();
 			} else {
