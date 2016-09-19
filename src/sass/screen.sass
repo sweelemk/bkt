@@ -134,7 +134,7 @@ body
 					+rem(top, 15px)
 					background-color: $bordeaux
 					+rem(width, 296px)
-					// bottom: 0
+					bottom: 0
 					+rem(padding, 25px 0)
 					box-shadow: 0px 32px 40px 0px rgba(0, 0, 0, 0.25)
 					overflow: hidden
@@ -1925,6 +1925,8 @@ hr
 			&:nth-child(odd)
 				padding-left: 0px
 .wrapper-products
+	.sc-section
+		+rem(padding, 0 40px 40px 0)
 	+r(992)
 		.secondary-nav
 			display: block
@@ -1943,6 +1945,8 @@ hr
 				display: none
 			& + .container
 				padding-top: 90px
+		.sc-section
+			+rem(padding, 0 0 40px 0)
 	+r(480)
 		.secondary-nav
 			.btn-back
@@ -2382,11 +2386,12 @@ hr
 		+r(568)
 			+rem(margin-bottom, 80px)
 		&.image-row__small
+			+rem(margin-left, -30px)
 			.image-row__item
 				width: 33.33%
 				display: inline-block
 				vertical-align: top
-				+rem(padding-right, 30px)
+				+rem(padding-left, 30px)
 				+r(568)
 					width: 100%
 					padding-right: 0
@@ -2408,11 +2413,12 @@ hr
 					text-align: center
 					letter-spacing: 1px
 		&.image-row__medium
+			+rem(margin-left, -30px)
 			.image-row__item
 				width: 50%
 				display: inline-block
 				vertical-align: top
-				+rem(padding-right, 30px)
+				+rem(padding-left, 30px)
 				+r(568)
 					width: 100%
 					padding-right: 0
