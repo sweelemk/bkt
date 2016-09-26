@@ -476,6 +476,7 @@ body
 			height: 100%
 			width: 100%
 			top: 0
+			position: absolute
 			transition: background-color 0.3s linear, opacity 0.3s linear, visibility 0.3s linear
 			+r(992)
 				display: none
@@ -548,12 +549,17 @@ body
 						+rem(font-size, 17px)
 						padding: 0 5%
 						+rem(margin-bottom, 25px)
+					&:hover
+						.btn 
+							background-color: $bordeaux
+							span
+								color: $white
 				&.hover
 					.intro-hover-item__content
-						transform: translate(0, -50px)
+						transform: translate(0, -150px)
 						transition: transform 0.3s linear 0.1s
 						+r(1280)
-							transform: translate(0, -50px)
+							transform: translate(0, -220px)
 						will-change: transform
 						.text 
 							opacity: 1
@@ -564,19 +570,23 @@ body
 		left: 0
 		right: 0
 		z-index: 3
+		height: 0
 		+r(1000) 
 			display: none
 		.intro__content-grid-action
 			font-size: 0
 			line-height: 0
 			white-space: nowrap
+			height: 0
 			.intro__content-grid-item
 				display: inline-block
 				vertical-align: middle
-				+rem(height, 100px)
+				+rem(height, 200px)
 				width: 20%
 				position: relative
 				transition: transform 0.3s linear 0.1s
+				&.active
+					height: 0
 				span 
 					position: absolute
 					top: 50%
@@ -585,7 +595,6 @@ body
 					+rem(width, 100px)
 					+rem(height, 100px)
 					border-radius: 100%
-					cursor: pointer
 					transition: transform 0.3s linear 0.1s , opacity 0.3s linear 0.1s
 					background-size: cover
 					will-change: transform
@@ -595,7 +604,7 @@ body
 						opacity: 0
 				&.active
 					span
-						transform: translate(-50%, -150%)
+						transform: translate(-50%, -170%)
 						&.in
 							opacity: 0
 						&.out
@@ -1012,6 +1021,11 @@ body
 		display: none
 	+r(480)
 		+rem(height, 50px)
+	&.slide-up + .container
+		.sidebar-form
+			top: 95px!important
+			&.bottom
+				top: auto!important
 	&.fixed
 		position: fixed
 		+rem(top, 100px)
@@ -1833,6 +1847,7 @@ hr
 	box-shadow: 0 16px 40px rgba(0,0,0,.25)
 	font-size: 0
 	+rem(min-height, 664px)
+	transition: top 0.3s ease
 	&.is_stuck 
 		margin-bottom: 20px
 	+r(992)

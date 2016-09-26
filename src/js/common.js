@@ -10,6 +10,10 @@ $(document).ready(function() {
 				side.stick_in_parent({
 					parent: ".row-products",
 					offset_top : 195
+				}).on("sticky_kit:bottom", function(){
+					$(this).addClass("bottom");
+				}).on("sticky_kit:unbottom", function(){
+					$(this).removeClass("bottom");
 				});
 			}
 		});
