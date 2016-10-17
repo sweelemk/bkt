@@ -983,7 +983,7 @@ $(document).ready(function() {
 			event.stopPropagation();
 		});
 
-		btnSelect.on("click", function(){
+		btnSelect.off('click').on("click", function(){
 			selectedValue(data, $(this))
 
 			popupSelector
@@ -1002,12 +1002,35 @@ $(document).ready(function() {
 		var itemDOM = $("[data-modal='" + modal + "']").find("span"),
 			s = $("[data-modal-wrap='" + modal + "']"),
 			inValHidden = $("[data-modal='" + modal + "']").find("input"),
-			inVal = s.find("input:checked").val();
-		if(inVal === "") {
-			return false
+			input = s.find("input:checked"),
+			inVal = input.data('value'),
+			val = input.val(),
+			objVals = [];
+
+		if(inVal === undefined) {
+			return false;
 		} else {
-			itemDOM.html(inVal);
-			inValHidden.val(inVal);
+			if(!s.hasClass("modal__wrap-equipment")) {
+				itemDOM.html(inVal);
+				inValHidden.data('value', inVal);
+				inValHidden.val(val).trigger('change');
+
+				return true;
+			} else {
+				s.find("input:checked").each(function() {
+					var _this = $(this),
+						inpCheck = _this.data("value"),
+						inpCategory = _this.data("category");
+						
+					objVals.push(inpCategory + ": " + inpCheck);
+				});
+
+				var post = objVals.join(", ");
+				itemDOM.html(post);
+				inValHidden.data('value', post);
+				inValHidden.val(val).trigger('change');
+
+			}
 		}
 	};
 

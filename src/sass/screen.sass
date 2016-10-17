@@ -2022,11 +2022,17 @@ hr
 		vertical-align: top
 		text-align: center
 		+rem(margin, 0 20px 40px)
-		img
-			display: block
+		.image__cover
+			border: 2px solid transparent
+			transition: border-color 0.3s ease
 			margin: 0 auto 30px
+			border-radius: 100%
 			+rem(width, 191px)
 			+rem(height, 191px)
+			position: relative
+		img
+			display: block
+			max-width: 100%
 			border-radius: 100%
 		figcaption
 			font-family: "Light"
@@ -2035,7 +2041,18 @@ hr
 			text-transform: uppercase
 			text-align: center
 			+rem(letter-spacing, 0.5px)
-
+		&.active
+			.image__cover
+				border-color: #139a35
+				&::after
+					content: '';
+					+rem(width, 32px)
+					+rem(height, 24px)
+					background-image: url(../img/icons/icon-13.png)
+					position: absolute
+					top: 50%
+					left: 50%
+					+rem(margin, -12px 0 0 -16px)
 .modal__wrap
 	&.modal__wrap-size
 		font-size: 0

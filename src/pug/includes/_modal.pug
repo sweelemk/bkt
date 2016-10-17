@@ -218,9 +218,9 @@
 						.tab-in
 							.tab-cont(data-tab-cont="tab0")
 								.furn-rotator.furn-popup
-									mixin furn(id, image, brand, series, value)
+									mixin furn(id, image, brand, series, value, category)
 										.furn-rotator__item
-											input(id=id type="radio" name="furniture" value=value)
+											input(id=id type="radio" name="furniture" data-value=value value=value data-category=category)
 											label(for=id)
 												.rotator__item-inner
 													.image__cover
@@ -228,10 +228,10 @@
 													.descr
 														.name Бренд: #{brand}
 														.series Серия: #{series}
-									+furn("id-1","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU")
-									+furn("id-2","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid")
-									+furn("id-3","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990")
-									+furn("id-4","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990")
+									+furn("id-1","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU", "Главный замок")
+									+furn("id-2","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid", "Главный замок")
+									+furn("id-3","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990", "Главный замок")
+									+furn("id-4","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990", "Главный замок")
 								.rotator-navi
 									.rotator-arrow.rotator-arrow__left
 									.rotator-counter
@@ -241,9 +241,9 @@
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab1")
 								.furn-rotator.furn-popup
-									mixin furn(id, image, brand, series, value)
+									mixin furn(id, image, brand, series, value, category)
 										.furn-rotator__item
-											input(id=id type="radio" name="furniture" value=value)
+											input(id=id type="radio" name="furniture1" data-value=value value=value data-category=category)
 											label(for=id)
 												.rotator__item-inner
 													.image__cover
@@ -251,9 +251,9 @@
 													.descr
 														.name Бренд: #{brand}
 														.series Серия: #{series}
-									+furn("id-5","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU")
-									+furn("id-6","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid")
-									+furn("id-7","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990")
+									+furn("id-5","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU", "Дверной замок")
+									+furn("id-6","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid", "Дверной замок")
+									+furn("id-7","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990", "Дверной замок")
 								.rotator-navi
 									.rotator-arrow.rotator-arrow__left
 									.rotator-counter
@@ -263,9 +263,9 @@
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab2")
 								.furn-rotator.furn-popup
-									mixin furn(id, image, brand, series, value)
+									mixin furn(id, image, brand, series, value, category)
 										.furn-rotator__item
-											input(id=id type="radio" name="furniture" value=value)
+											input(id=id type="radio" name="furniture2" data-value=value value=value data-category=category)
 											label(for=id)
 												.rotator__item-inner
 													.image__cover
@@ -273,12 +273,12 @@
 													.descr
 														.name Бренд: #{brand}
 														.series Серия: #{series}
-									+furn("id-8","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU")
-									+furn("id-9","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid")
-									+furn("id-10","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990")
-									+furn("id-11","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU")
-									+furn("id-12","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid")
-									+furn("id-13","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990")
+									+furn("id-8","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU", "Нижний замок")
+									+furn("id-9","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid", "Нижний замок")
+									+furn("id-10","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990", "Нижний замок")
+									+furn("id-11","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU", "Нижний замок")
+									+furn("id-12","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid", "Нижний замок")
+									+furn("id-13","img/furniture-slide.jpg", "Gerda", "138990", "Бренд: Gerda, Серия: 138990", "Нижний замок")
 								.rotator-navi
 									.rotator-arrow.rotator-arrow__left
 									.rotator-counter
@@ -288,9 +288,9 @@
 									.rotator-arrow.rotator-arrow__right
 							.tab-cont(data-tab-cont="tab3")
 								.furn-rotator.furn-popup
-									mixin furn(id, image, brand, series, value)
+									mixin furn(id, image, brand, series, value, category)
 										.furn-rotator__item
-											input(id=id type="radio" name="furniture" value=value)
+											input(id=id type="radio" name="furniture3" data-value=value value=value data-category=category)
 											label(for=id)
 												.rotator__item-inner
 													.image__cover
@@ -298,8 +298,8 @@
 													.descr
 														.name Бренд: #{brand}
 														.series Серия: #{series}
-									+furn("id-14","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU")
-									+furn("id-15","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid")
+									+furn("id-14","img/furniture-slide.jpg", "Kale", "1013JU", "Бренд: Кале, Серия: 1013JU", "Ручка")
+									+furn("id-15","img/furniture-slide.jpg", "Zaha Hadid", "12Kid", "Бренд: Zaha Hadid, Серия: 12Kid", "Ручка")
 								.rotator-navi
 									.rotator-arrow.rotator-arrow__left
 									.rotator-counter
