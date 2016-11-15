@@ -1774,6 +1774,7 @@ hr
 			.rotator-counter
 				.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
 					color: $white
+					text-shadow: 1px 1px 2px #000
 			.rotator-arrow
 			 	&.rotator-arrow__left
 			 		background-image: url(../img/icons/icon-12.png)
@@ -2028,8 +2029,8 @@ hr
 			transition: border-color 0.3s ease
 			margin: 0 auto 30px
 			border-radius: 100%
-			+rem(width, 191px)
-			+rem(height, 191px)
+			+rem(width, 84px)
+			+rem(height, 84px)
 			position: relative
 		img
 			display: block
@@ -2047,15 +2048,15 @@ hr
 				border-color: #139a35
 				&::after
 					content: '';
-					+rem(width, 32px)
-					+rem(height, 24px)
+					+rem(width, 24px)
+					+rem(height, 18px)
 					background-image: url(../img/icons/icon-13.png)
 					background-size: cover
 					background-repeat: no-repeat
 					position: absolute
 					top: 50%
 					left: 50%
-					+rem(margin, -12px 0 0 -16px)
+					+rem(margin, -9px 0 0 -12px)
 .modal__wrap
 	&.modal__wrap-size
 		font-size: 0
@@ -2534,7 +2535,8 @@ hr
 		z-index: 2
 		.rotator-counter
 			.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
-				color: $white
+				color: $white				
+				text-shadow: 1px 1px 2px #000
 		.rotator-arrow
 		 	&.rotator-arrow__left
 		 		background-image: url(../img/icons/icon-12.png)
@@ -2754,3 +2756,14 @@ hr
 	+rem(height, 20px)
 	+rem(top, -28px)
 	+rem(right, -28px)
+.download-file
+	display: block
+	+rem(padding, 5px 0)
+	span
+		color: $bordeaux
+		border-bottom: 1px solid
+		transition: border-color 0.3s ease
+		+rem(font-size, 17px)
+	&:hover 
+		span
+			border-color: transparent
