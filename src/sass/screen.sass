@@ -415,6 +415,7 @@ body
 .intro 
 	position: relative
 	overflow: hidden
+	height: 100vh
 	.intro__cover
 		position: absolute
 		top: 0
@@ -2025,6 +2026,7 @@ hr
 		display: inline-block
 		vertical-align: top
 		text-align: center
+		cursor: pointer
 		+rem(margin, 0 20px 40px)
 		.image__cover
 			border: 2px solid transparent
@@ -2065,7 +2067,7 @@ hr
 		.form
 			+rem(max-width, 480px)
 		.field
-			width: 50%
+			width: 100%
 			display: inline-block
 			vertical-align: top
 			text-align: left
@@ -2073,14 +2075,18 @@ hr
 				width: 100%
 				text-align: center
 			&:first-child
-				+rem(padding-right, 10px)
+				// +rem(padding-right, 10px)
 				+r(568)
 					padding-right: 0
 			&:last-child
-				+rem(padding-left, 10px)
+				// +rem(padding-left, 10px)
 				+r(568)
 					padding-left: 0
 		.field-body
+			width: 50%
+			float: left
+			+r(568)
+				width: 100%
 			&:not(:last-of-type)
 				+rem(margin-bottom, 15px)
 			input
@@ -2154,6 +2160,7 @@ hr
 				display: inline-block
 				text-align: center
 				cursor: pointer
+				width: 100%
 				.image__cover
 					+rem(width, 80px)
 					+rem(height, 80px)
@@ -2769,3 +2776,12 @@ hr
 	&:hover 
 		span
 			border-color: transparent
+.out-inner
+	.header
+		position: relative
+	+r(992)
+		.wrapper-products
+			.secondary-nav
+				position: relative
+				& + .container
+					padding: 0

@@ -9,7 +9,7 @@ $(document).ready(function() {
 			} else {
 				side.stick_in_parent({
 					parent: ".row-products",
-					offset_top : 195
+					offset_top : 10
 				}).on("sticky_kit:bottom", function(){
 					$(this).addClass("bottom");
 				}).on("sticky_kit:unbottom", function(){
@@ -43,10 +43,13 @@ $(document).ready(function() {
 
 		wrapper.css("padding-top", header);
 	};
-
-	$(window).on("load resize", function(){
+	if(!$(".out").hasClass("out-inner")){
 		wrapperTop();
-	});
+		$(window).on("resize", function(){
+			wrapperTop();
+		});
+	}
+	
 
 	//intro
 	function intro() {
@@ -59,9 +62,9 @@ $(document).ready(function() {
 		} else {
 			intro.height(wH - header.innerHeight());
 		}
-	};
+	}; intro();
 
-	$(window).on("load resize", function() {
+	$(window).on("resize", function() {
 		intro()
 	});
 
@@ -703,7 +706,10 @@ $(document).ready(function() {
 
 		    }
 		}
-	} scrolling();
+	} 
+	if(!$(".out").hasClass("out-inner")) {
+		scrolling();
+	}
 
 	//scroll section
 	function scrollSection(){
@@ -720,6 +726,7 @@ $(document).ready(function() {
 			var target = $(this).data("scroller"),
 				rTarget = navA.find(".active").data("scroller") || navA.find("li").last().find("a").data("scroller");
 
+			console.log(target, rTarget)
 			smoothScroll(target, rTarget);
 			// smoothScroll($(this.hash))
 			event.preventDefault();
@@ -752,20 +759,28 @@ $(document).ready(function() {
 			var tTop = $(target).offset().top - $(window).scrollTop(),
 				rtTop = $(rTarget).offset().top - $(window).scrollTop();
 
+			if(!$(".out").hasClass("out-inner")) {
+				setTimeout(function(){
+					if(rtTop < tTop) {
+						console.log(true)
+						$("body, html").animate({
+							"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - 30
+						}, 450);
+					} else {
+						console.log(false)
+						$("body, html").animate({
+							"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight() - 30
+						}, 450);
+					}
+				},100)
+			} else {
+				$("body, html").animate({
+					"scrollTop": $(target).offset().top - 30
+				}, 450);
+			}
 
-			setTimeout(function(){
-				if(rtTop < tTop) {
-					console.log(true)
-					$("body, html").animate({
-						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - 30
-					}, 450);
-				} else {
-					console.log(false)
-					$("body, html").animate({
-						"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight() - 30
-					}, 450);
-				}
-			},100)
+
+			
 
 			// $("body, html").animate({
 			// 	"scrollTop": $(target).offset().top - $(".secondary-nav").innerHeight() - $(".header").innerHeight()
