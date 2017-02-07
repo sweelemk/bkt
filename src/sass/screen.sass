@@ -2008,6 +2008,7 @@ hr
 .h2
 	+rem(font-size, 24px)
 	color: $dGrey
+	font-family: "Medium"
 .h3
 	font-family: "Heavy"
 	+rem(font-size, 24px)
@@ -2016,6 +2017,7 @@ hr
 .columns
 	.h2
 		padding-right: 15%
+		+rem(margin-bottom, 30px)
 .colors
 	font-size: 0
 	+rem(margin, 0 -20px 40px)
@@ -2276,6 +2278,8 @@ hr
 .tab-container
 	width: 100%
 	+rem(margin-bottom, 50px)
+	.tab-cont
+		+clr
 	.tab-nav
 		width: 100%
 		overflow-x: auto
@@ -2768,14 +2772,21 @@ hr
 .download-file
 	display: block
 	+rem(padding, 5px 0)
+	+rem(margin, 5px 0)
+	.icon
+		+rem(width, 25px)
+		+rem(height, 30px)
+		background-image: url("../img/icons/pdf.jpg")
+		background-size: cover
+		background-repeat: no-repeat
+		display: inline-block
+		vertical-align: middle
+		+rem(margin-right, 12px)
 	span
 		color: $bordeaux
-		border-bottom: 1px solid
-		transition: border-color 0.3s ease
 		+rem(font-size, 17px)
-	&:hover 
-		span
-			border-color: transparent
+		display: inline-block
+		vertical-align: middle
 .out-inner
 	.header
 		position: relative
@@ -2785,3 +2796,154 @@ hr
 				position: relative
 				& + .container
 					padding: 0
+
+
+.image-container
+	img
+		max-width: 100%
+.columns__left
+	.h2
+		+rem(margin-bottom, 20px)
+	&.images
+		+rem(padding-right, 60px)
+.image-cases
+	&.image-design
+		position: relative
+		.image-row__item
+			+rem(margin-bottom, 30px)
+.complectation
+	+rem(margin, 0 -25px 35px -25px)
+	font-size: 0
+	.complectation-item
+		width: 50%
+		display: inline-block
+		+rem(padding, 0 25px)
+		+rem(margin-bottom, 30px)
+		+r(666)
+			width: 100%
+		.complectation-item_inner
+			border: 1px solid #e6e6e6
+		.complectation-head
+			background-color: #f3f3f3
+			text-align: center
+			+rem(padding, 28px 10px)
+			span
+				font-family: "Book"
+				+rem(font-size, 13px)
+				color: $black
+				text-transform: uppercase
+		.complectation-body
+			+rem(padding, 20px 70px 44px 70px)
+			text-align: center
+			display: block
+			.complectation-image
+				width: 100%
+				img
+					max-width: 100%
+			.complectation-popup
+				+rem(font-size, 17px)
+				color: #a51d0b
+				border-bottom: 1px solid 
+				transition: border-color 0.3s ease
+				display: inline
+			&:hover
+				.complectation-popup
+					border-color: transparent
+		.complectation-hidden
+			display: none
+.fancybox-skin
+	border-radius: 0
+.fancybox-inner
+	.counter
+		position: absolute
+		+rem(bottom, 25px)
+		+rem(right, 40px)
+		span
+			font-family: "Book"
+			+rem(font-size, 17px)
+			text-shadow: 1px 1px 2px #000;
+			color: $white
+.fancybox-title-float-wrap
+	position: relative
+	margin-bottom: 0
+	right: auto
+	background-color: #FFF
+	+rem(padding, 20px 30px)	
+	text-align: left
+	.child
+		margin-right: 0
+		background-color: transparent
+		text-shadow: none
+		font-family: "Book"
+		color: $black
+		+rem(font-size, 17px)
+		padding: 0
+		white-space: normal
+		max-width: 85%
+		font-weight: normal
+		+r(980)
+			max-width: 100%
+.fancybox-lock .fancybox-overlay
+	overflow-x: hidden
+.fancybox-nav
+	width: 50%
+.furn-rotator 
+	+rem(margin-right, -49px)
+	+r(767)
+		+rem(margin-right, -19px)
+	+r(569)
+		+rem(margin-right, -44px)
+	+r(480)
+		margin-right: 0
+	position: relative
+.tab-in
+	overflow: hidden
+.furn-rotator .furn-rotator__item
+	+rem(margin-right, -50px)
+	+r(767)
+		+rem(margin-right, 20px)
+	+r(569)
+		+rem(margin-right, 45px)
+	+r(480)
+		margin-right: 0
+.tab-textblock
+	.image-container
+		+rem(max-width, 183px)
+		float: left
+		+rem(margin-right, 50px)
+	.text
+		+rem(padding-top, 20px)
+.image-cases, .produts-sliders
+	.rotator-navi
+		.rotator-arrow
+			display: none
+	.rotator-counter
+		margin: 0
+.single-image
+	.slick-arrow
+		top: 0
+		height: 100%
+		+rem(width, 90px)
+		margin-top: 0
+		&.slick-prev
+			&::after
+				content: ""
+				+rem(height, 64px)
+				+rem(width, 37px)
+				background-image: url("../img/icons/icon-12.png")
+				background-size: cover
+				background-repeat: no-repeat
+				display: inline-block
+			&::before
+				content: none
+		&.slick-next
+			&::after
+				content: ""
+				+rem(height, 64px)
+				+rem(width, 37px)
+				background-image: url("../img/icons/icon-11.png")
+				background-size: cover
+				background-repeat: no-repeat
+				display: inline-block
+			&::before
+				content: none

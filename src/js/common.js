@@ -273,6 +273,7 @@ $(document).ready(function() {
 
 	} sliderPopular();
 
+
 	//colors slider
 	function sliderColors() {
 		var carousels = $(".color-rotator");
@@ -465,6 +466,12 @@ $(document).ready(function() {
 				infinite: false,
 				responsive: [
 					{
+						breakpoint: 1170,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
 						breakpoint: 768,
 						settings: {
 							slidesToShow: 2
@@ -487,15 +494,27 @@ $(document).ready(function() {
 				slide: ".furn-rotator__item",
 				responsive: [
 					{
-						breakpoint: 768,
+						breakpoint: 1170,
 						settings: {
 							slidesToShow: 3
 						}
 					},
 					{
+						breakpoint: 993,
+						settings: {
+							slidesToShow: 4
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 4
+						}
+					},
+					{
 						breakpoint: 569,
 						settings: {
-							slidesToShow: 2
+							slidesToShow: 3
 						}
 					},
 					{
@@ -1010,12 +1029,39 @@ $(document).ready(function() {
 
 			});
 
-			carousel.slick({
+			var single = {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: true,
+				infinite: false
+			}
+
+			var double = {
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				arrows: false,
-				infinite: false
-			});
+				infinite: false,
+				asNavFor: ".rotator-caption"
+			}
+
+			var caption = {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				infinite: false,
+				asNavFor: carousel,
+				touchMove: false,
+				swipe: false
+			}
+
+			if(carousel.parent().next(".rotator-caption").length) {
+				carousel.slick(double);
+				carousel.parent().next(".rotator-caption").slick(caption)
+			} else {
+				carousel.slick(single);
+			}
+
+				
 
 			carousel.find("img").on("click", function(){
 				carousel.slick("slickNext");
@@ -1170,7 +1216,28 @@ $(document).ready(function() {
 		$(".resize").fancybox({
 			padding: 0,
 			margin: [60, 20, 60, 20]
-		})
+		});
+
+		
 	} f_box();
+
+	function fancyGallery(){
+		$(".complectation-body").on("click", function(){
+			var _ = $(this),
+				_length = _.next().children().length + 1;
+
+			$(".complectation-body").fancybox({
+				padding: 0,
+				margin: [30, 30, 30, 30],
+				tpl: {
+					wrap: '<div class="fancybox-wrap" tabIndex="1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"><div class="counter"><div class="count_elem"><span class="current"></span><span class="separator">/</span><span class="all"></span></div></div></div></div></div></div>',
+				},
+				afterShow: function () {
+					$('.all').text(_length);
+					$('.current').text($.fancybox.current.index + 1);
+				}
+			});
+		});
+	} fancyGallery();
 
 });

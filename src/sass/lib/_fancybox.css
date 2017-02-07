@@ -158,10 +158,10 @@
 
 /* Overlay helper */
 
-.fancybox-lock {
+/*.fancybox-lock {
     overflow: hidden !important;
     width: auto;
-}
+}*/
 
 .fancybox-lock body {
     overflow: hidden !important;
