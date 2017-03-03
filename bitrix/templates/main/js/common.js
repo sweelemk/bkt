@@ -817,16 +817,47 @@ $(document).ready(function() {
 			center: [55.649728, 37.55195],
 			zoom: 15,
 			controls: []
+		}),
+		objectManager = new ymaps.ObjectManager({
+			clusterize: true
 		});
 
-		var placemark = new ymaps.Placemark([55.649728, 37.55195],{
-				balloonContent: "1117342, г. Москва, РФ, ул. Введенского, д.1, стр.1"
-			}, {
-				preset: 'islands#icon',
-				iconColor: "#e03732"
-			});
+		var myObjects = {
+			"type": "FeatureCollection",
+			"features": [
+				{
+					"type": "Feature", 
+					"id": 0, 
+					"geometry": {
+						"type": "Point", 
+						"coordinates": [55.649728, 37.55195]
+					}, 
+					"properties": {
+						"balloonContent": "1117342, г. Москва, РФ, ул. Введенского, д.1, стр.1"
+					}
+				},
+				{
+					"type": "Feature", 
+					"id": 1, 
+					"geometry": {
+						"type": "Point", 
+						"coordinates": [55.672021, 37.583895]
+					}, 
+					"properties": {
+						"balloonContent": "Нахимовский пр-т, 24, пав. 3В, 443"
+					}
+				}
+			]
+		};
 
-		yMap.geoObjects.add(placemark);
+
+		objectManager.objects.options.set({
+			preset: 'islands#icon',
+			iconColor: "#e03732"
+		});
+		yMap.geoObjects.add(objectManager);
+		objectManager.add(myObjects);
+		yMap.setBounds(objectManager.getBounds());
 
 		yMap.controls.add("zoomControl", {
 			size: "small"
@@ -917,7 +948,7 @@ $(document).ready(function() {
 					complete: function () {
 						$(this).find(".modal-back").removeClass("open");
 						html.removeClass("modal-open");
-						popupSelector.find("input").prop("checked", false);
+						
 					}
 				})
 		});
@@ -998,7 +1029,8 @@ $(document).ready(function() {
 				next = carousel.parent().find(".rotator-arrow__right"),
 				prev = carousel.parent().find(".rotator-arrow__left"),
 				current = carousel.parent().find(".rotator__counter-current"),
-				all = carousel.parent().find(".rotator__counter-all");
+				all = carousel.parent().find(".rotator__counter-all"),
+				caption = carousel.parent().next(".rotator-caption");
 
 			carousel.on("init", function(){
 				var l = $(this).find('.slick-slide').length;
@@ -1039,9 +1071,9 @@ $(document).ready(function() {
 			var double = {
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				arrows: false,
+				arrows: true,
 				infinite: false,
-				asNavFor: ".rotator-caption"
+				asNavFor: caption
 			}
 
 			var caption = {
@@ -1064,15 +1096,15 @@ $(document).ready(function() {
 				
 
 			carousel.find("img").on("click", function(){
-				carousel.slick("slickNext");
+				$(this).slick("slickNext");
 			})
 
 			next.on("click", function(){
-				carousel.slick("slickNext");
+				$(this).slick("slickNext");
 			});
 
 			prev.on("click", function(){
-				carousel.slick("slickPrev");
+				$(this).slick("slickPrev");
 			});
 		});
 	} productSlider();

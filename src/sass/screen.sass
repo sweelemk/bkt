@@ -469,8 +469,29 @@ body
 							+rem(font-size, 28px)
 						.red 
 							color: #b33727
+							display: none
 						.grey
 							color: #b7b7b7
+							background-image: url("../img/icons/title.png")
+							background-size: cover
+							+rem(width, 227px)
+							+rem(height, 35px)
+							display: inline-block
+							text-indent: -999999px
+							vertical-align: middle
+							position: relative
+							top: -5px
+							+r(1000)
+								+rem(width, 215px)
+								+rem(height, 33px)
+							+r(992)
+								+rem(width, 165px)
+								+rem(height, 26px)
+								top: -3px
+							+r(480)
+								+rem(width, 130px)
+								+rem(height, 20px)
+								top: -2px
 		.intro__overlay
 			opacity: 0
 			visibility: hidden
@@ -681,7 +702,7 @@ body
 		+rem(font-size, 36px)
 		color: $bordeaux
 		text-align: center
-		+rem(margin, 20px 0 40px)
+		+rem(margin, 20px 0 30px)
 
 // .content
 // 	&:not(:first-of-type)
@@ -811,7 +832,7 @@ body
 	.rotator-counter
 		display: inline-block
 		vertical-align: middle
-		+rem(font-size, 13px)
+		+rem(font-size, 18px)
 		+rem(margin, 0 15px)
 		.rotator__counter-current, .rotator__counter-separator, .rotator__counter-all
 			display: inline-block
@@ -1252,6 +1273,15 @@ hr
 		+r(992)
 			width: 100%
 			float: none
+	&.images_title
+		.columns__left
+			width: 60%
+			+r(992)
+				width: 100%
+		.columns__right
+			width: 40%
+			+r(992)
+				width: 100%
 .history
 	+rem(margin-bottom, 90px)
 .video-container
@@ -1728,7 +1758,7 @@ hr
 	+r(992)
 		padding-right: 0
 .produts-sliders
-	+rem(margin-bottom, 50px)
+	+rem(margin-bottom, 30px)
 	+rem(max-height, 664px)
 	overflow: hidden
 	+r(992)
@@ -2299,7 +2329,7 @@ hr
 					border-color: $bordeaux
 			a
 				font-family: "Light"
-				font-size: 13px
+				+rem(font-size, 18px)
 				color: $dGrey
 				text-transform: uppercase
 				display: inline-block
@@ -2805,7 +2835,14 @@ hr
 	.h2
 		+rem(margin-bottom, 20px)
 	&.images
-		+rem(padding-right, 60px)
+		+rem(padding-right, 20px)
+		width: 60%
+		+r(992)
+			width: 100%
+		& + .columns__right
+			width: 40%
+			+r(992)
+				width: 100%
 .image-cases
 	&.image-design
 		position: relative
@@ -2947,3 +2984,19 @@ hr
 				display: inline-block
 			&::before
 				content: none
+.modal-palitra
+	.field-body
+		text-align: center
+		a
+			font-size: 17px;
+			font-size: 1.0625rem;
+			color: #a51d0b;
+			border-bottom: 1px solid;
+			transition: border-color .3s ease;
+			display: inline-block;
+			margin-top: 5px;
+			&:hover
+				border-color: transparent
+.modal__wrap .tab-container .tab-in .tab-cont .furn-rotator
+	text-align: left
+	margin-right: 0
